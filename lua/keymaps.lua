@@ -17,11 +17,26 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
 -- TIP: Disable arrow keys in normal mode
--- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
--- vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
--- vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
--- vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
+vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
+vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
+vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
+vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 
+vim.keymap.set({ 'n', 'v', 'o' }, 'L', '$')
+vim.keymap.set({ 'n', 'v', 'o' }, 'H', '^')
+
+vim.keymap.set('x', 'p', '"_dP')
+vim.keymap.set({ 'n', 'v' }, '<leader>d', [["_d]], { desc = 'No Buffer delete' })
+vim.keymap.set({ 'n', 'v' }, '<leader>D', [["_D]], { desc = 'No Buffer Delete' })
+vim.keymap.set({ 'n', 'v' }, '<leader>c', [["_c]], { desc = 'No Buffer change' })
+vim.keymap.set({ 'n', 'v' }, '<leader>C', [["_C]], { desc = 'No Buffer Change' })
+vim.keymap.set('n', 'x', '"_x')
+-- Split window
+vim.keymap.set('n', '<leader>v', ':vsplit<CR>', { desc = 'Split Screen Vertically' })
+
+vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
+-- Does another search and replace on the word you just replaced --
+vim.keymap.set('n', 'g.', '/\\V\\C<C-r>"<CR>cgn<C-a><Esc>')
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
 --
