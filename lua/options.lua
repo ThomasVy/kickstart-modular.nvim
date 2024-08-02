@@ -62,4 +62,17 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
+-- show existing tab with 4 spaces
+vim.opt.tabstop = 2
+
+-- when indenting with '>', use 4 spaces width
+vim.opt.shiftwidth = 2
+
+-- on pressing tab, insert 4 spaces
+vim.opt.expandtab = true
+
+vim.opt.autoindent = true
+vim.opt.smartindent = true
+
+vim.opt.wildignore:append { '*/node_modules/*' }
 -- vim: ts=2 sts=2 sw=2 et
