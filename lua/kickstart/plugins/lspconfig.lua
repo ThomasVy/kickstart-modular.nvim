@@ -212,6 +212,12 @@ return {
         'clang-format',
         -- 'tailwindcss-language-server',
         -- 'typescript-language-server',
+        'isort',
+        'black',
+        'prettierd',
+        'npm-groovy-lint',
+        'rustfmt',
+        'cmakelang',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
