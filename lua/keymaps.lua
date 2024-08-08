@@ -27,10 +27,9 @@ vim.keymap.set({ 'n', 'v', 'o' }, 'H', '^')
 
 vim.keymap.set('x', 'p', '"_dP')
 vim.keymap.set({ 'n', 'v' }, '<leader>d', [["_d]], { desc = 'No Buffer delete' })
-vim.keymap.set({ 'n', 'v' }, '<leader>D', [["_D]], { desc = 'No Buffer Delete' })
 vim.keymap.set({ 'n', 'v' }, '<leader>c', [["_c]], { desc = 'No Buffer change' })
-vim.keymap.set({ 'n', 'v' }, '<leader>C', [["_C]], { desc = 'No Buffer Change' })
 vim.keymap.set('n', 'x', '"_x')
+vim.keymap.set('n', '<leader>e', '<cmd>e!<CR>', { desc = 'Undo file' })
 -- Split window
 vim.keymap.set('n', '<leader>v', ':vsplit<CR>', { desc = 'Split Screen Vertically' })
 

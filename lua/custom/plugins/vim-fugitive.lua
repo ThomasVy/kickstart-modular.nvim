@@ -31,8 +31,11 @@ return {
       --   end,
       -- })
 
-      vim.keymap.set('n', '<leader>gu', '<cmd>diffget //2<CR>')
-      vim.keymap.set('n', '<leader>gh', '<cmd>diffget //3<CR>')
+      vim.keymap.set('n', '<leader>gm', '<cmd>Gdiffsplit!<CR>', { desc = '3 way merge' })
+      vim.keymap.set('n', '<leader>gd', '<cmd>Gdiffsplit<CR>', { desc = 'Diff' })
+      vim.keymap.set('n', '<leader>gh', '<cmd>diffget //2<CR>', { desc = 'Grab from left side' })
+      vim.keymap.set('n', '<leader>gl', '<cmd>diffget //3<CR>', { desc = 'Grab from right side' })
+      vim.keymap.set('n', '<leader>gp', '<cmd>diffput //1<CR>', { desc = 'Put both into 1' })
     end,
   },
 }
