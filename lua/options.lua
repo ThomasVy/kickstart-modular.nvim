@@ -63,14 +63,17 @@ vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 
 -- show existing tab with 4 spaces
-vim.opt.tabstop = 2
+vim.opt.tabstop = 8
+vim.opt.softtabstop = 0
+vim.opt.smarttab = true
 
 -- when indenting with '>', use 4 spaces width
-vim.opt.shiftwidth = 2
+vim.opt.shiftwidth = 4
 
 -- on pressing tab, insert 4 spaces
 vim.opt.expandtab = true
 
+-- show line numbers a
 vim.opt.autoindent = true
 vim.opt.smartindent = true
 

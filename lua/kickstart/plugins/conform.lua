@@ -28,10 +28,17 @@ return {
       formatters_by_ft = {
         lua = { 'stylua' },
         -- Conform can also run multiple formatters sequentially
-        -- python = { "isort", "black" },
+        python = { 'isort', 'black' },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
-        -- javascript = { "prettierd", "prettier", stop_after_first = true },
+        javascript = { 'prettierd', 'prettier', stop_after_first = true },
+        groovy = { 'npm-groovy-lint' },
+        go = { 'goimports', 'gofmt' },
+        rust = { 'rustfmt', lsp_format = 'fallback' },
+        cmake = { 'cmake_format' },
+
+        cpp = { 'clang-format' },
+        c = { 'clang-format' },
       },
     },
   },

@@ -98,9 +98,9 @@ return {
 
           -- Rename the variable under your cursor.
           --  Most Language Servers support renaming across files, etc.
-          map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-
-          -- Execute a code action, usually your cursor needs to be on top of an error
+          vim.keymap.set('n', '<leader>rn', function()
+            return ':IncRename ' .. vim.fn.expand '<cword>'
+          end, { expr = true, desc = 'LSP: [R]e[n]ame' }) -- Execute a code action, usually your cursor needs to be on top of an error
           -- or a suggestion from your LSP for this to activate.
           map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
@@ -212,6 +212,12 @@ return {
         'clang-format',
         -- 'tailwindcss-language-server',
         -- 'typescript-language-server',
+        'isort',
+        'black',
+        'prettierd',
+        'npm-groovy-lint',
+        'rustfmt',
+        'cmakelang',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
