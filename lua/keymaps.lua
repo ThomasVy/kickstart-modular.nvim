@@ -32,7 +32,7 @@ vim.keymap.set({ 'n', 'v' }, '<leader>c', [["_c]], { desc = 'No Buffer change' }
 vim.keymap.set({ 'n', 'v' }, '<leader>C', [["_C]], { desc = 'No Buffer Change' })
 vim.keymap.set('n', 'x', '"_x')
 -- Split window
-vim.keymap.set('n', '<leader>v', ':vsplit<CR>', { desc = 'Split Screen Vertically' })
+vim.keymap.set('n', '<leader>v', ':vsplit<CR>', { desc = 'Split Screen [V]ertically' })
 
 vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
 -- Does another search and replace on the word you just replaced --
