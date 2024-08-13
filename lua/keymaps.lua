@@ -33,7 +33,7 @@ vim.keymap.set('n', '<leader>e', '<cmd>e!<CR>', { desc = 'Undo file' })
 -- Split window
 vim.keymap.set('n', '<leader>v', ':vsplit<CR>', { desc = 'Split Screen [V]ertically' })
 
-vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
+vim.keymap.set('n', '-', '<CMD>Oil --float<CR>', { desc = 'Open parent directory' })
 -- Does another search and replace on the word you just replaced --
 vim.keymap.set('n', 'g.', '/\\V\\C<C-r>"<CR>cgn<C-a><Esc>')
 -- Keybinds to make split navigation easier.
