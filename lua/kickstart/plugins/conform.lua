@@ -37,8 +37,8 @@ return {
         rust = { 'rustfmt', lsp_format = 'fallback' },
         cmake = { 'cmake_format' },
 
-        cpp = { 'clang-format' },
-        c = { 'clang-format' },
+        cpp = { 'clangd' },
+        c = { 'clangd' },
       },
     },
   },

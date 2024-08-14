@@ -52,3 +52,9 @@ end, { silent = true })
 vim.keymap.set({ 'i', 's' }, '<c-j>', function()
   return vim.snippet.active { direction = -1 } and vim.snippet.jump(-1)
 end, { silent = true })
+
+vim.keymap.set({ 'i', 's' }, '<c-n>', function()
+  if ls.choice_active() then
+    ls.choice_active().change_choice(1)
+  end
+end, { silent = true })
