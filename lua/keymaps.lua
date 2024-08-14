@@ -25,10 +25,6 @@ vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 vim.keymap.set({ 'n', 'v', 'o' }, 'L', '$')
 vim.keymap.set({ 'n', 'v', 'o' }, 'H', '^')
 
-vim.keymap.set('x', 'p', '"_dP')
-vim.keymap.set({ 'n', 'v' }, '<leader>d', [["_d]], { desc = 'No Buffer delete' })
-vim.keymap.set({ 'n', 'v' }, '<leader>c', [["_c]], { desc = 'No Buffer change' })
-vim.keymap.set('n', 'x', '"_x')
 vim.keymap.set('n', '<leader>e', '<cmd>e!<CR>', { desc = 'Undo file' })
 -- Split window
 vim.keymap.set('n', '<leader>v', ':vsplit<CR>', { desc = 'Split Screen [V]ertically' })

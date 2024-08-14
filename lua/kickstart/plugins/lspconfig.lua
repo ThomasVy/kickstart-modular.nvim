@@ -223,9 +223,8 @@ return {
         -- 'typescript-language-server',
         'isort',
         'black',
-        'prettierd',
+        'prettier',
         'npm-groovy-lint',
-        'rustfmt',
         'cmakelang',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
