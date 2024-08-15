@@ -20,7 +20,7 @@ vim.opt.showmode = false
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
 vim.schedule(function()
-  vim.opt.clipboard = 'unnamedplus'
+    vim.opt.clipboard = 'unnamedplus'
 end)
 
 -- Enable break indent
@@ -63,7 +63,7 @@ vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 
 -- show existing tab with 4 spaces
-vim.opt.tabstop = 8
+vim.opt.tabstop = 4
 vim.opt.softtabstop = 0
 vim.opt.smarttab = true
 
