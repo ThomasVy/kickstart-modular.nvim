@@ -29,16 +29,16 @@ return {
 
         --replace
         vim.keymap.set('n', '<leader>nra', function()
-            harpoon:list():select(1)
+            harpoon:list():replace_at(1)
         end, { desc = 'Replace Harpoon 1' })
         vim.keymap.set('n', '<leader>nrs', function()
-            harpoon:list():select(2)
+            harpoon:list():replace_at(2)
         end, { desc = 'Replace Harpoon 2' })
         vim.keymap.set('n', '<leader>nrd', function()
-            harpoon:list():select(3)
+            harpoon:list():replace_at(3)
         end, { desc = 'Replace Harpoon 3' })
         vim.keymap.set('n', '<leader>nrf', function()
-            harpoon:list():select(4)
+            harpoon:list():replace_at(4)
         end, { desc = 'Replace Harpoon 4' })
     end,
 }
