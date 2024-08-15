@@ -30,7 +30,7 @@ return {
                 { '<leader>t', group = '[T]oggle' },
                 { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
                 { '<leader>g', group = '[G]it' },
-                { '<leader>p', group = '[J]Harpoon' },
+                { '<leader>k', group = '[K]Harpoon' },
             }
         end,
     },
