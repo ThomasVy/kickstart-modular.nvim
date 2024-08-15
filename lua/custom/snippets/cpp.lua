@@ -11,30 +11,30 @@ local c = ls.choice_node
 local fmt = require('luasnip.extras.fmt').fmt
 
 ls.add_snippets('cpp', {
-  s(
-    'testfile',
-    fmt(
-      [[
+    s(
+        'testfile',
+        fmt(
+            [[
     #include "stdafx.h"
     class {1} : public ::testing::Test {{
     public:
-      {1}() {{
-        {2}
-      }}
+      {1}() : {2}() {{}}
     protected:
+    {3}
     }};
     ]],
-      {
-        t(vim.fn.expand '%:t:r'),
-        i(1),
-      }
-    )
-  ),
+            {
+                t(vim.fn.expand '%:t:r'),
+                i(1),
+                i(2),
+            }
+        )
+    ),
 
-  s(
-    'main',
-    fmt(
-      [[
+    s(
+        'main',
+        fmt(
+            [[
       #include <iostream>
       int main() {{
           {}
@@ -42,26 +42,26 @@ ls.add_snippets('cpp', {
           return 0;
       }}
     ]],
-      i(1)
-    )
-  ),
+            i(1)
+        )
+    ),
 
-  s(
-    'LOG',
-    fmt([[{}("{}", {});]], {
-      c(1, {
-        t 'LOG_INFO',
-        t 'LOG_ERROR',
-        t 'LOG_DEBUG',
-        t 'LOG_EMERGENCY',
-        t 'LOG_ALERT',
-        t 'LOG_CRITICAL',
-        t 'LOG_WARNING',
-        t 'LOG_SPAM',
-        t 'LOG_NOTICE',
-      }),
-      i(2),
-      i(3),
-    })
-  ),
+    s(
+        'LOG',
+        fmt([[{}("{}", {});]], {
+            c(1, {
+                t 'LOG_INFO',
+                t 'LOG_ERROR',
+                t 'LOG_DEBUG',
+                t 'LOG_EMERGENCY',
+                t 'LOG_ALERT',
+                t 'LOG_CRITICAL',
+                t 'LOG_WARNING',
+                t 'LOG_SPAM',
+                t 'LOG_NOTICE',
+            }),
+            i(2),
+            i(3),
+        })
+    ),
 })

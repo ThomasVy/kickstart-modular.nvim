@@ -46,15 +46,15 @@ for _, ft_path in ipairs(vim.api.nvim_get_runtime_file('lua/custom/snippets/*.lu
 end
 
 vim.keymap.set({ 'i', 's' }, '<m-k>', function()
-    return vim.snippet.active { direction = 1 } and vim.snippet.jump(1)
-end, { silent = true })
-
-vim.keymap.set({ 'i', 's' }, '<m-j>', function()
     return vim.snippet.active { direction = -1 } and vim.snippet.jump(-1)
 end, { silent = true })
 
-vim.keymap.set({ 'i', 's' }, '<c-n>', function()
-  if ls.choice_active() then
-    ls.choice_active().change_choice(1)
-  end
+vim.keymap.set({ 'i', 's' }, '<m-j>', function()
+    return vim.snippet.active { direction = 1 } and vim.snippet.jump(1)
+end, { silent = true })
+
+vim.keymap.set({ 'i', 's' }, '<m-n>', function()
+    if ls.choice_active() then
+        ls.choice_active().change_choice(1)
+    end
 end, { silent = true })
