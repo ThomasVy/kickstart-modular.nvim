@@ -220,7 +220,6 @@ return {
                 'emmet-language-server',
                 'clangd',
                 'tailwindcss-language-server',
-                'typescript-language-server',
                 'isort',
                 'black',
                 'prettier',
