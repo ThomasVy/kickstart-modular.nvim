@@ -13,6 +13,10 @@ return {
             harpoon.ui:toggle_quick_menu(harpoon:list())
         end, { desc = 'Harpoo[N] [L]ist' })
 
+        vim.keymap.set('n', '<leader>nc', function()
+            harpoon:list():clear()
+        end, { desc = 'Harpoo[N] [C]lear' })
+
         -- select
         vim.keymap.set('n', '<leader>na', function()
             harpoon:list():select(1)
