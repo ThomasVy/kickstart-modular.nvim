@@ -11,9 +11,7 @@ vim.keymap.set('n', '<leader>sl', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left>
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
-vim.keymap.set({ 'v', 'n' }, 'p', '"0p')
-vim.keymap.set('n', 'P', '"0P')
-
+vim.keymap.set('x', 'p', [["_dP]])
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
