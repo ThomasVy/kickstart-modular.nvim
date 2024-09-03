@@ -34,7 +34,6 @@ vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 vim.keymap.set({ 'n', 'v', 'o' }, 'L', '$')
 vim.keymap.set({ 'n', 'v', 'o' }, 'H', '^')
 
-vim.keymap.set('n', '<leader>e', '<cmd>e!<CR>', { desc = 'Undo file' })
 -- Split window
 vim.keymap.set('n', '<leader>v', ':vsplit<CR>', { desc = 'Split Screen [V]ertically' })
 
