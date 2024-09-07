@@ -14,14 +14,6 @@ return {
     },
     { 'Bilal2453/luvit-meta', lazy = true },
     {
-        'glepnir/lspsaga.nvim',
-        event = 'LspAttach',
-        config = function()
-            require('lspsaga').setup {}
-        end,
-        dependencies = { { 'nvim-tree/nvim-web-devicons' } },
-    },
-    {
         -- Main LSP Configuration
         'neovim/nvim-lspconfig',
         dependencies = {
