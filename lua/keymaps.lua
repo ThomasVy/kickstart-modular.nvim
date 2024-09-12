@@ -34,9 +34,6 @@ vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 vim.keymap.set({ 'n', 'v', 'o' }, 'L', '$')
 vim.keymap.set({ 'n', 'v', 'o' }, 'H', '^')
 
--- Split window
-vim.keymap.set('n', '<leader>v', ':vsplit<CR>', { desc = 'Split Screen [V]ertically' })
-
 vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
 -- Does another search and replace on the word you just replaced --
 vim.keymap.set('n', 'g.', '/\\V\\C<C-r>"<CR>cgn<C-a><Esc>')
@@ -53,6 +50,10 @@ vim.keymap.set('n', '<M-,>', '<c-w>5<')
 vim.keymap.set('n', '<M-.>', '<c-w>5>')
 vim.keymap.set('n', '<M-t>', '<C-W>+')
 vim.keymap.set('n', '<M-s>', '<C-W>-')
+vim.keymap.set('n', '<M-d>', '<CMD>bd<CR>')
+vim.keymap.set('n', '<M-x>', '<c-w>x')
+-- Split window
+vim.keymap.set('n', '<M-v>', ':vsplit<CR>', { desc = 'Split Screen [V]ertically' })
 
 vim.keymap.set('c', '<cr>', function()
     if vim.fn.pumvisible() == 1 then
