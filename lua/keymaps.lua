@@ -25,11 +25,6 @@ end, { desc = 'Open diagnostic floating' })
 
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
--- TIP: Disable arrow keys in normal mode
-vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
-vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
-vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
-vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 
 vim.keymap.set({ 'n', 'v', 'o' }, 'L', '$')
 vim.keymap.set({ 'n', 'v', 'o' }, 'H', '^')
@@ -50,7 +45,7 @@ vim.keymap.set('n', '<M-,>', '<c-w>5<')
 vim.keymap.set('n', '<M-.>', '<c-w>5>')
 vim.keymap.set('n', '<M-t>', '<C-W>+')
 vim.keymap.set('n', '<M-s>', '<C-W>-')
-vim.keymap.set('n', '<M-d>', '<CMD>bd<CR>')
+vim.keymap.set('n', '<M-d>', '<CMD>bp|bd #<CR>')
 vim.keymap.set('n', '<M-x>', '<c-w>x')
 -- Split window
 vim.keymap.set('n', '<M-v>', ':vsplit<CR>', { desc = 'Split Screen [V]ertically' })
