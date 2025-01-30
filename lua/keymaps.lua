@@ -32,6 +32,10 @@ vim.keymap.set({ 'n', 'v', 'o' }, 'H', '^')
 vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
 -- Does another search and replace on the word you just replaced --
 vim.keymap.set('n', 'g.', '/\\V\\C<C-r>"<CR>cgn<C-a><Esc>')
+
+-- Adds line down
+vim.keymap.set('n', 'gj', 'o<Esc>k$')
+
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
 --
