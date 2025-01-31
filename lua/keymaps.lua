@@ -6,7 +6,7 @@
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 vim.keymap.set('n', '<leader>z', '<cmd>LspRestart<cr>', { desc = 'Restarts LSP' })
-
+vim.keymap.set('n', '<leader>x', '<cmd>source %<CR>', { desc = 'Execute the current file' })
 vim.keymap.set('n', '<leader>sl', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = '[S]earch and replace [L]ocally' })
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
@@ -44,13 +44,19 @@ vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left wind
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+
+-- Quickfix list
+vim.keymap.set('n', '<M-j>', '<CMD>cnext<CR>', { desc = 'Go to the next item in the quickfix list' })
+vim.keymap.set('n', '<M-k>', '<CMD>cprev<CR>', { desc = 'Go to the previous item in the quickfix list' })
+vim.keymap.set('n', '<M-c>', '<CMD>cclose<CR>', { desc = 'Close the quickfix list' })
+vim.keymap.set('n', '<M-o>', '<CMD>copen<CR>', { desc = 'Open the quickfix list' })
+
 -- These mappings control the size of splits (height/width)
 vim.keymap.set('n', '<M-,>', '<c-w>5<')
 vim.keymap.set('n', '<M-.>', '<c-w>5>')
 vim.keymap.set('n', '<M-t>', '<C-W>+')
 vim.keymap.set('n', '<M-s>', '<C-W>-')
-vim.keymap.set('n', '<M-d>', '<CMD>bp|bd #<CR>')
-vim.keymap.set('n', '<M-x>', '<c-w>x')
+
 -- Split window
 vim.keymap.set('n', '<M-v>', ':vsplit<CR>', { desc = 'Split Screen [V]ertically' })
 
