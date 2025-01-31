@@ -28,6 +28,8 @@ return {
 
             -- Allows extra capabilities provided by nvim-cmp
             'hrsh7th/cmp-nvim-lsp',
+            -- Autoformatting
+            'stevearc/conform.nvim',
         },
         config = function()
             -- Brief aside: **What is LSP?**
@@ -230,6 +232,31 @@ return {
                     end,
                 },
             }
+
+            require('custom.autoformat').setup()
+            local cmp = require 'cmp'
+            -- `/` cmdline setup.
+            cmp.setup.cmdline('/', {
+                mapping = cmp.mapping.preset.cmdline(),
+                sources = {
+                    { name = 'buffer' },
+                },
+            })
+
+            -- `:` cmdline setup.
+            cmp.setup.cmdline(':', {
+                mapping = cmp.mapping.preset.cmdline(),
+                sources = cmp.config.sources({
+                    { name = 'path' },
+                }, {
+                    {
+                        name = 'cmdline',
+                        option = {
+                            ignore_cmds = { 'Man', '!' },
+                        },
+                    },
+                }),
+            })
         end,
     },
 }

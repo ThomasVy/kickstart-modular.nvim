@@ -4,7 +4,6 @@
 -- you do for a plugin at the top level, you can do for a dependency.
 --
 -- Use the `dependencies` key to specify the dependencies of a particular plugin
-
 return {
     { -- Fuzzy Finder (files, lsp, etc)
         'nvim-telescope/telescope.nvim',
@@ -82,6 +81,7 @@ return {
             -- Enable Telescope extensions if they are installed
             pcall(require('telescope').load_extension, 'fzf')
             pcall(require('telescope').load_extension, 'ui-select')
+            pcall(require('telescope').load_extension 'noice')
 
             -- See `:help telescope.builtin`
             local builtin = require 'telescope.builtin'
@@ -90,7 +90,7 @@ return {
             vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
             vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
             vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
-            vim.keymap.set('n', '<leader>sg', require 'custom.config.telescope.multigrep', { desc = '[S]earch by [G]rep' })
+            vim.keymap.set('n', '<leader>sg', require 'custom.multigrep', { desc = '[S]earch by [G]rep' })
             vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
             vim.keymap.set('n', '<leader>s;', builtin.resume, { desc = '[S]earch [;]Resume' })
             vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })

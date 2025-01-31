@@ -11,6 +11,8 @@ vim.keymap.set('n', '<leader>sl', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left>
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
+vim.keymap.set('n', '<leader>Nd', '<cmd>NoiceDismiss<CR>', { desc = 'Dismiss noice' })
+vim.keymap.set('n', '<leader>Nm', '<cmd>Telescope noice<CR>', { desc = 'Open noice message' })
 vim.keymap.set('x', 'p', [["_dP]])
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
