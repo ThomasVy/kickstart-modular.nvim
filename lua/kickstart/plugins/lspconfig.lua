@@ -30,6 +30,7 @@ return {
             'hrsh7th/cmp-nvim-lsp',
             -- Autoformatting
             'stevearc/conform.nvim',
+            'saghen/blink.cmp',
         },
         config = function()
             -- Brief aside: **What is LSP?**
@@ -232,31 +233,13 @@ return {
                     end,
                 },
             }
-
-            require('custom.autoformat').setup()
-            local cmp = require 'cmp'
-            -- `/` cmdline setup.
-            cmp.setup.cmdline('/', {
-                mapping = cmp.mapping.preset.cmdline(),
-                sources = {
-                    { name = 'buffer' },
-                },
-            })
-
-            -- `:` cmdline setup.
-            cmp.setup.cmdline(':', {
-                mapping = cmp.mapping.preset.cmdline(),
-                sources = cmp.config.sources({
-                    { name = 'path' },
-                }, {
-                    {
-                        name = 'cmdline',
-                        option = {
-                            ignore_cmds = { 'Man', '!' },
-                        },
-                    },
-                }),
-            })
+            local lspconfig = require 'lspconfig'
+            for server, config in pairs(servers) do
+                -- passing config.capabilities to blink.cmp merges with the capabilities in your
+                -- `opts[server].capabilities, if you've defined it
+                config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
+                lspconfig[server].setup(config)
+            end
         end,
     },
 }
