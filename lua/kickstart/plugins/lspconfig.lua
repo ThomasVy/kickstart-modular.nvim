@@ -170,7 +170,7 @@ return {
             local servers = {
                 clangd = {
                   filetypes = { 'c', 'cpp', 'objc', 'objcpp' },
-                  cmd = { 'clangd', '--background-index', '--malloc-trim', '--pch-storage=memory', '--suggest-missing-includes', '--header-insertion=iwyu', '--cross-file-rename' },
+                  cmd = { 'clangd', '--background-index', '-j=24', '--malloc-trim', '--pch-storage=memory', '--cross-file-rename' },
                 },
                 -- gopls = {},
                 -- pyright = {},
