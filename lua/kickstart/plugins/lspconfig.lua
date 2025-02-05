@@ -168,7 +168,10 @@ return {
             --  - settings (table): Override the default settings passed when initializing the server.
             --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
             local servers = {
-                -- clangd = {},
+                clangd = {
+                  filetypes = { 'c', 'cpp', 'objc', 'objcpp' },
+                  cmd = { 'clangd', '--background-index', '--malloc-trim', '--pch-storage=memory', '--suggest-missing-includes', '--header-insertion=iwyu', '--cross-file-rename' },
+                },
                 -- gopls = {},
                 -- pyright = {},
                 -- rust_analyzer = {},
