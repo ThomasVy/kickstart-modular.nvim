@@ -62,6 +62,8 @@ vim.keymap.set('n', '<M-s>', '<C-W>-')
 -- Split window
 vim.keymap.set('n', '<M-v>', ':vsplit<CR>', { desc = 'Split Screen [V]ertically' })
 
+-- format
+vim.keymap.set('n', '<leader>f', vim.lsp.buf.format, { desc = '[F]ormat Buffer'})
 vim.keymap.set('c', '<cr>', function()
     if vim.fn.pumvisible() == 1 then
         return '<c-y>'

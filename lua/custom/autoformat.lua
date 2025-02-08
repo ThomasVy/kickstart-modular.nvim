@@ -28,9 +28,6 @@ local setup = function()
         },
     }
 
-    vim.keymap.set('n', '<leader>f', function()
-        require('conform').format { async = true, lsp_fallback = true }
-    end, { noremap = true, silent = true, desc = '[F]ormat buffer' })
 
     vim.api.nvim_create_autocmd('BufWritePre', {
         group = vim.api.nvim_create_augroup('custom-conform', { clear = true }),
