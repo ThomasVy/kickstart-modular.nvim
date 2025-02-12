@@ -7,3 +7,10 @@ vim.filetype.add({
   }
 })
 
+vim.filetype.add({
+  extension = {
+    pipeline = 'dockerfile'
+  }, filename = {
+    ['Dockerfile'] = 'dockerfile'
+  }
+})
