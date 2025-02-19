@@ -64,6 +64,10 @@ return {
               ["<esc>"] = actions.close
             },
           },
+          file_ignore_patterns = {
+              "^.git/*",
+              "node_modules/*",
+          },
         },
         pickers = {
           find_files = {
