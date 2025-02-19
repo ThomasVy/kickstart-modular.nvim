@@ -36,7 +36,8 @@ vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
 vim.keymap.set('n', 'g.', '/\\V\\C<C-r>"<CR>cgn<C-a><Esc>')
 
 -- Adds line down
-vim.keymap.set('n', 'gj', 'o<Esc>k$')
+vim.keymap.set('n', 'gj', 'o<Esc>')
+vim.keymap.set('n', 'gk', 'O<Esc>')
 
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
