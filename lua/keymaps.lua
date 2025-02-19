@@ -61,16 +61,10 @@ vim.keymap.set('n', '<M-t>', '<C-W>+')
 vim.keymap.set('n', '<M-s>', '<C-W>-')
 
 -- Split window
-vim.keymap.set('n', '<M-v>', ':vsplit<CR>', { desc = 'Split Screen [V]ertically' })
-
+vim.keymap.set('n', '<M-x>', ':vsplit<CR>', { desc = 'Split Screen [V]ertically' })
+vim.keymap.set('n', '<M-q>', ':close<CR>', {desc = 'Close Buffer'})
 -- format
 vim.keymap.set('n', '<leader>f', vim.lsp.buf.format, { desc = '[F]ormat Buffer'})
-vim.keymap.set('c', '<cr>', function()
-    if vim.fn.pumvisible() == 1 then
-        return '<c-y>'
-    end
-    return '<cr>'
-end, { expr = true })
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -85,4 +79,3 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     end,
 })
 
--- vim: ts=2 sts=2 sw=2 et

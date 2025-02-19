@@ -1,11 +1,12 @@
 return {
     {
         'saghen/blink.cmp',
-        -- optional: provides snippets for the snippet source
-        dependencies = 'rafamadriz/friendly-snippets',
+        version = '*',
+        -- !Important! Make sure you're using the latest release of LuaSnip
+        -- `main` does not work at the moment
+        dependencies = { 'L3MON4D3/LuaSnip', version = 'v2.*' },
 
         -- use a release tag to download pre-built binaries
-        version = '*',
 
         opts = {
             -- 'default' for mappings similar to built-in completion
@@ -13,7 +14,7 @@ return {
             -- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
             -- See the full "keymap" documentation for information on defining your own keymap.
             keymap = { preset = 'default' },
-
+            snippets = { preset = 'luasnip' },
             appearance = {
                 -- Sets the fallback highlight groups to nvim-cmp's highlight groups
                 -- Useful for when your theme doesn't support blink.cmp

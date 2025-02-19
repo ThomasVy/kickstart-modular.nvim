@@ -65,8 +65,8 @@ return {
             },
           },
           file_ignore_patterns = {
-              "^.git/*",
               "node_modules/*",
+              ".git/*",
           },
         },
         pickers = {
@@ -104,9 +104,9 @@ return {
       vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
       vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
 
-      vim.keymap.set('n', '<leader>sa', function()
-        builtin.find_files { hidden = true }
-      end, { desc = '[S]earch [A]ll Files' })
+      -- vim.keymap.set('n', '<leader>sa', function()
+      --   builtin.find_files { hidden = true }
+      -- end, { desc = '[S]earch [A]ll Files' })
 
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<leader>/', function()
