@@ -32,13 +32,21 @@ return {
                         hide_hidden = false,
                         hide_by_name = {
                             'node_modules',
+                            '.git',
+                        },
+                        always_show = {             -- remains visible even if other settings would normally hide it
+                            ".gitignored",
+                        },
+                        always_show_by_pattern = { -- uses glob style patterns
+                            ".env*",
                         },
                     },
                     follow_current_file = {
-                        enabled = false, -- This will find and focus the file in the active buffer every time
+                        enabled = false,         -- This will find and focus the file in the active buffer every time
                         --               -- the current file is changed while the tree is open.
                         leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
                     },
+                    hijack_netrw_behavior = "disabled",
                 },
                 buffers = {
                     follow_current_file = {
