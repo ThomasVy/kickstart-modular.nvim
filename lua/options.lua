@@ -84,5 +84,5 @@ vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
 
-vim.opt.wildignore:append { '*/node_modules/*' }
+vim.opt.wildignore:append { '*/node_modules/*', '*/.git/*'}
 -- vim: ts=2 sts=2 sw=2 et

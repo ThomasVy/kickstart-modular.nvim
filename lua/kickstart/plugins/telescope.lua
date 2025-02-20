@@ -61,7 +61,8 @@ return {
           mappings = {
             i = {
               ['<C-x>'] = actions.select_vertical,
-              ["<esc>"] = actions.close
+              ["<esc>"] = actions.close,
+              ['<C-y>'] = actions.select_default
             },
           },
           file_ignore_patterns = {

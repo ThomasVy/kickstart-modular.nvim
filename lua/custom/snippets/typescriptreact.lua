@@ -16,11 +16,47 @@ local fmt = require("luasnip.extras.fmt").fmt
 ls.add_snippets("typescriptreact", {
    s(
       "useS",
-      fmt("const [{}, set{setter}] = useState<{}>({})", {
+      fmt("const [{}, set{setter}] = useState({})", {
          i(1, "state"),
-         i(2, "type"),
-         i(3, "initialValue"),
+         i(2, "initialValue"),
          setter = l(l._1:sub(1, 1):upper() .. l._1:sub(2, -1), 1)
       })
    ),
+   s(
+      "useE",
+      fmt(
+         [[
+         useEffect(() => {{
+           {}
+         }}, [{}]
+         ]],
+         {
+            i(1, "body"),
+            i(2, "dependency")
+         }
+      )
+   ),
+   s(
+      "rc",
+      fmt(
+         [[
+            type {}Props = {{
+            }};
+
+            export default function {}({{}}: {}Props) {{
+              return (
+                <>
+                  {}
+                </>
+              );
+            }}
+         ]],
+         {
+            rep(1),
+            i(1, "Component"),
+            rep(1),
+            i(2, "<h1>Hello World</h1>")
+         }
+      )
+   )
 })
