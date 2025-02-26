@@ -198,8 +198,6 @@ return {
         },
         html = {},
         cssls = {},
-
-
         --
 
         lua_ls = {
@@ -254,6 +252,7 @@ return {
           end,
         },
       }
+      require('custom.autoformat').setup()
       local lspconfig = require 'lspconfig'
       for server, config in pairs(servers) do
         -- passing config.capabilities to blink.cmp merges with the capabilities in your

@@ -13,6 +13,7 @@ local setup = function()
             go = { 'goimports', 'gofmt' },
             rust = { 'rustfmt', lsp_format = 'fallback' },
             cmake = { 'cmake_format' },
+            json = { 'prettier' },
 
             cpp = { 'clangd' },
             c = { 'clangd' },
@@ -29,6 +30,13 @@ local setup = function()
     }
 
 
+    vim.keymap.set('n', '<leader>f', conform.format, { desc = '[F]ormat Buffer' })
+
+    -- disable allow autoformatting on save if environment variable is set
+    if vim.env.DONT_AUTOFORMAT_ON_SAVE then
+        return
+    end
+
     vim.api.nvim_create_autocmd('BufWritePre', {
         group = vim.api.nvim_create_augroup('custom-conform', { clear = true }),
         callback = function(args)
@@ -39,6 +47,7 @@ local setup = function()
             }
         end,
     })
+
 end
 
 setup()
