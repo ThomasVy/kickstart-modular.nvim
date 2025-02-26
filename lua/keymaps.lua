@@ -7,7 +7,7 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 vim.keymap.set('n', '<leader>z', '<cmd>LspRestart<cr>', { desc = 'Restarts LSP' })
 vim.keymap.set('n', '<leader>x', '<cmd>source %<CR>', { desc = 'Execute the current file' })
-vim.keymap.set('n', '<leader>sl', [[:%s/\<<C-r><C-w>\>//gI<Left><Left><Left>]], { desc = '[S]earch and replace [L]ocally' })
+vim.keymap.set('n', '<leader>sl', [[:%s#\<<C-r><C-w>\>##gI<Left><Left><Left>]], { desc = '[S]earch and replace [L]ocally' })
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
