@@ -1,6 +1,6 @@
 local lspconfig = require 'lspconfig'
 lspconfig.clangd.setup {
-  filetypes = { 'h', 'hpp', 'c', 'cpp', 'cuh', 'cu', 'objc', 'objcpp', 'proto' },
+  filetypes = { 'h', 'hpp', 'c', 'cpp', 'cuh', 'cu', 'objc', 'objcpp' },
   capabilities = capabilities,
   settings = {
     on_attach = {

@@ -47,7 +47,6 @@ local setup = function()
             }
         end,
     })
-
 end
 
 setup()
