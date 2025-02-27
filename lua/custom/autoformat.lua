@@ -18,6 +18,25 @@ local setup = function()
             cpp = { 'clangd' },
             c = { 'clangd' },
         },
+        -- format_on_save = {
+        --     -- enable only if environment variable is set
+        --     enabled = not vim.env.DONT_AUTOFORMAT_ON_SAVE,
+        --     lsp_format = 'fallback',
+        --     timeout_ms = 500,
+        -- },
+        format_after_save = {
+            enabled = not vim.env.DONT_AUTOFORMAT_AFTER_SAVE,
+            async = true,
+            lsp_format = 'fallback',
+        },
+        formatters = {
+            isort = {
+                command = 'isort',
+                args = {
+                    '-',
+                },
+            },
+        },
     }
 
     conform.formatters.injected = {
@@ -29,26 +48,9 @@ local setup = function()
         },
     }
 
-
     vim.keymap.set('n', '<leader>f', function()
         conform.format { async = true, lsp_format = 'fallback' }
     end, { desc = '[F]ormat Buffer' })
-
-    -- disable allow autoformatting on save if environment variable is set
-    if vim.env.DONT_AUTOFORMAT_ON_SAVE then
-        return
-    end
-
-    vim.api.nvim_create_autocmd('BufWritePre', {
-        group = vim.api.nvim_create_augroup('custom-conform', { clear = true }),
-        callback = function(args)
-            require('conform').format {
-                bufnr = args.buf,
-                lsp_fallback = true,
-                quiet = true,
-            }
-        end,
-    })
 end
 
 setup()

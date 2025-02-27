@@ -185,8 +185,8 @@ return {
           },
         },
         -- gopls = {},
-        -- pyright = {},
-        -- rust_analyzer = {},
+        pyright = {},
+        rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
@@ -233,7 +233,7 @@ return {
       -- for you, so that they are available from within Neovim.
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
-        -- 'stylua', -- Used to format Lua code
+        'stylua', -- Used to format Lua code
         'emmet-language-server',
         'tailwindcss-language-server',
         'prettier',
