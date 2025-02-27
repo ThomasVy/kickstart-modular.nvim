@@ -30,7 +30,9 @@ local setup = function()
     }
 
 
-    vim.keymap.set('n', '<leader>f', conform.format, { desc = '[F]ormat Buffer' })
+    vim.keymap.set('n', '<leader>f', function()
+        conform.format { async = true, lsp_format = 'fallback' }
+    end, { desc = '[F]ormat Buffer' })
 
     -- disable allow autoformatting on save if environment variable is set
     if vim.env.DONT_AUTOFORMAT_ON_SAVE then
