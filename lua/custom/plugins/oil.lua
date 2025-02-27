@@ -13,7 +13,7 @@ return {
                 keymaps = {
                     ['g?'] = 'actions.show_help',
                     ['<CR>'] = 'actions.select',
-                    ['<C-s>'] = { 'actions.select', opts = { vertical = true }, desc = 'Open the entry in a vertical split' },
+                    ['<C-x>'] = { 'actions.select', opts = { vertical = true }, desc = 'Open the entry in a vertical split' },
                     ['<C-h>'] = false,
                     ['<C-t>'] = false,
                     ['<C-p>'] = 'actions.preview',
