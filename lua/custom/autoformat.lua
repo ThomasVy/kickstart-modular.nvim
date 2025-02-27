@@ -1,4 +1,16 @@
-local setup = function()
+local setup = function(ensured_installed)
+    vim.list_extend(ensured_installed, {
+        'stylua', -- Used to format Lua code
+        'emmet-language-server',
+        'tailwindcss-language-server',
+        'prettier',
+        'fixjson',
+        -- 'clangd',
+        -- 'isort',
+        -- 'black',
+        -- 'npm-groovy-lint',
+        -- 'cmakelang',
+    })
     -- Autoformatting Setup
     local conform = require 'conform'
     conform.setup {
@@ -13,7 +25,7 @@ local setup = function()
             go = { 'goimports', 'gofmt' },
             rust = { 'rustfmt', lsp_format = 'fallback' },
             cmake = { 'cmake_format' },
-            json = { 'prettier' },
+            json = { 'fixjson' },
 
             cpp = { 'clangd' },
             c = { 'clangd' },
@@ -53,7 +65,5 @@ local setup = function()
         conform.format { async = true, lsp_format = 'fallback' }
     end, { desc = '[F]ormat Buffer' })
 end
-
-setup()
 
 return { setup = setup }
