@@ -1,7 +1,8 @@
 vim.filetype.add({
   extension = {
     pipeline = 'groovy'
-  }, filename = {
+  },
+  filename = {
     ['JenkinsFile'] = 'groovy',
     ['Jenkinsfile'] = 'groovy'
   }
@@ -9,8 +10,12 @@ vim.filetype.add({
 
 vim.filetype.add({
   extension = {
-    pipeline = 'dockerfile'
-  }, filename = {
+    dockerfile = 'dockerfile'
+  },
+  filename = {
     ['Dockerfile'] = 'dockerfile'
+  },
+  pattern = {
+    ['.*/Dockerfile.*'] = 'dockerfile'
   }
 })
