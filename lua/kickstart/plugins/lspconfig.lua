@@ -178,6 +178,11 @@ return {
             '--clang-tidy',
             '--header-insertion=iwyu'
           },
+          settings = {
+            on_attach = {
+              vim.keymap.set('n', '<leader>o', '<Cmd>ClangdSwitchSourceHeader<CR>', { silent = true }),
+            },
+          },
         },
         -- gopls = {},
         -- pyright = {},
