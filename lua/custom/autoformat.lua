@@ -37,6 +37,7 @@ local setup = function()
                 },
             },
         },
+        notify_on_error = true,
     }
 
     conform.formatters.injected = {
