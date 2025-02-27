@@ -30,13 +30,7 @@ return {
                         visible = false,
                         hide_dotfiles = false,
                         hide_hidden = false,
-                        hide_by_name = require 'custom.hiddenfiles',
-                        always_show = { -- remains visible even if other settings would normally hide it
-                            '.gitignored',
-                        },
-                        always_show_by_pattern = { -- uses glob style patterns
-                            '.env*',
-                        },
+                        hide_by_name = require('custom.hiddenfolders').hiddenfolders,
                     },
                     follow_current_file = {
                         enabled = false, -- This will find and focus the file in the active buffer every time
