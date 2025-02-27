@@ -33,7 +33,7 @@ return {
                     -- Show files and directories that start with "."
                     show_hidden = true,
                     is_always_hidden = function(name, bufnr)
-                        local hiddenFolders = { '.git', 'node_modules', '.vscode', '.vs' }
+                        local hiddenFolders = require 'custom.hiddenfiles'
                         for _, folder in ipairs(hiddenFolders) do
                             if name == folder then
                                 return true
