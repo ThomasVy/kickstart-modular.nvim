@@ -5,10 +5,9 @@ return {
     config = function()
         local harpoon = require 'harpoon'
         harpoon:setup()
+        local harpoon_extensions = require 'harpoon.extensions'
+        harpoon:extend(harpoon_extensions.builtins.highlight_current_file())
 
-        vim.keymap.set('n', '<leader>ny', function()
-            harpoon:list():add()
-        end, { desc = 'Harpoo[N] Add' })
         vim.keymap.set('n', '<leader>nl', function()
             harpoon.ui:toggle_quick_menu(harpoon:list())
         end, { desc = 'Harpoo[N] [L]ist' })
@@ -16,18 +15,28 @@ return {
         vim.keymap.set('n', '<leader>nc', function()
             harpoon:list():clear()
         end, { desc = 'Harpoo[N] [C]lear' })
+        vim.keymap.set('n', '<leader>s', function()
+            harpoon:list():prev { ui_nav_wrap = true }
+        end, { desc = 'harpoon previous' })
+        vim.keymap.set('n', '<leader>l', function()
+            harpoon:list():next { ui_nav_wrap = true }
+        end, { desc = 'Harpoon Next' })
+
+        vim.keymap.set('n', '<leader>a', function()
+            harpoon:list():add()
+        end, { desc = 'Harpoon Add' })
 
         -- select
-        vim.keymap.set('n', '<leader>na', function()
+        vim.keymap.set('n', '<leader>1', function()
             harpoon:list():select(1)
         end, { desc = 'Harpoon 1' })
-        vim.keymap.set('n', '<leader>ns', function()
+        vim.keymap.set('n', '<leader>2', function()
             harpoon:list():select(2)
         end, { desc = 'Harpoon 2' })
-        vim.keymap.set('n', '<leader>nd', function()
+        vim.keymap.set('n', '<leader>3', function()
             harpoon:list():select(3)
         end, { desc = 'Harpoon 3' })
-        vim.keymap.set('n', '<leader>nf', function()
+        vim.keymap.set('n', '<leader>4', function()
             harpoon:list():select(4)
         end, { desc = 'Harpoon 4' })
 
