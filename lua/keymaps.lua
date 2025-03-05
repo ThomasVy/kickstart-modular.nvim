@@ -21,7 +21,7 @@ vim.keymap.set('x', 'p', [["_dP]])
 -- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
 -- or just use <C-\><C-n> to exit terminal mode
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
-vim.keymap.set('n', '<leader>i', function()
+vim.keymap.set('n', '<S-u>', function()
     vim.diagnostic.open_float()
 end, { desc = 'Open diagnostic floating' })
 
@@ -75,4 +75,26 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     callback = function()
         vim.highlight.on_yank()
     end,
+})
+
+vim.keymap.set('n', 'j', function()
+    if vim.v.count1 > 1 then
+        return ('m`%sj'):format(vim.v.count1)
+    else
+        return 'j'
+    end
+end, {
+    expr = true,
+    desc = 'place "previous context" mark before moving more than one line down using `j`, so it is added to the jumplist and Ctrl-o will go back to this spot',
+})
+
+vim.keymap.set('n', 'k', function()
+    if vim.v.count1 > 1 then
+        return ('m`%sk'):format(vim.v.count1)
+    else
+        return 'k'
+    end
+end, {
+    expr = true,
+    desc = 'place "previous context" mark before moving more than one line down using `k`, so it is added to the jumplist and Ctrl-o will go back to this spot',
 })
