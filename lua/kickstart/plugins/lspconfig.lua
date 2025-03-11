@@ -18,7 +18,7 @@ return {
     'neovim/nvim-lspconfig',
     dependencies = {
       -- Automatically install LSPs and related tools to stdpath for Neovim
-      { 'williamboman/mason.nvim', config = true },       -- NOTE: Must be loaded before dependants
+      { 'williamboman/mason.nvim', config = true }, -- NOTE: Must be loaded before dependants
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
 
@@ -103,7 +103,7 @@ return {
           --  Most Language Servers support renaming across files, etc.
           vim.keymap.set('n', '<leader>rn', function()
             return ':IncRename ' .. vim.fn.expand '<cword>'
-          end, { expr = true, desc = 'LSP: [R]e[n]ame' })           -- Execute a code action, usually your cursor needs to be on top of an error
+          end, { expr = true, desc = 'LSP: [R]e[n]ame' }) -- Execute a code action, usually your cursor needs to be on top of an error
           -- or a suggestion from your LSP for this to activate.
           map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
           -- WARN: This is not Goto Definition, this is Goto Declaration.
@@ -157,6 +157,8 @@ return {
       --  So, we create new capabilities with nvim cmp, and then broadcast that to the servers.
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+      local util = require "lspconfig/util"
+
 
       -- Enable the following language servers
       --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
@@ -187,7 +189,8 @@ return {
         },
         -- gopls = {},
         pyright = {},
-        rust_analyzer = {},
+        -- rust_analyzer = {} Don't install!! Install the rust-analyzer via
+        -- rustup add component rust-analyzer
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
@@ -238,7 +241,7 @@ return {
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
       require('mason-lspconfig').setup {
-        ensure_installed = {},         -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
+        ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
         automatic_installation = true,
         handlers = {
           function(server_name)
