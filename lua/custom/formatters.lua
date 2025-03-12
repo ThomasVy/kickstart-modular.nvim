@@ -26,9 +26,8 @@ local setup = function(ensured_installed)
             rust = { 'rustfmt', lsp_format = 'fallback' },
             cmake = { 'cmake_format' },
             json = { 'fixjson' },
-
-            cpp = { 'clangd' },
-            c = { 'clangd' },
+            c = { "clang_format" },
+            cpp = { "clang_format" },
         },
         -- format_on_save = {
         --     -- enable only if environment variable is set
@@ -46,6 +45,13 @@ local setup = function(ensured_installed)
                 command = 'isort',
                 args = {
                     '-',
+                },
+            },
+            clang_format = {
+                command = 'clang-format',
+                args = {
+                    "--style=file",
+                    '--fallback-style=Webkit'
                 },
             },
         },
