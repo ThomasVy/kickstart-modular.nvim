@@ -28,6 +28,10 @@ local setup = function(ensured_installed)
             json = { 'fixjson' },
             c = { "clang_format" },
             cpp = { "clang_format" },
+            hcl = { "packer_fmt" },
+            terraform = { "terraform_fmt" },
+            tf = { "terraform_fmt" },
+            ["terraform-vars"] = { "terraform_fmt" },
         },
         -- format_on_save = {
         --     -- enable only if environment variable is set

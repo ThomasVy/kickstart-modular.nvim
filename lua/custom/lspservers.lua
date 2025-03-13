@@ -49,6 +49,7 @@ local servers = {
             clangdFileStatus = true,
         },
     },
+    terraformls = {},
     -- gopls = {},
     pyright = {},
     -- rust_analyzer = {} Don't install!! Install the rust-analyzer via
