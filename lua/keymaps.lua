@@ -5,9 +5,20 @@
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
-vim.keymap.set('n', '<leader>z', '<cmd>LspRestart<cr>', { desc = 'Restarts LSP' })
+function ReloadConfig()
+    for name, _ in pairs(package.loaded) do
+        if name:match("^user") or name:match("^plugins") then
+            package.loaded[name] = nil
+        end
+    end
+    vim.cmd("source $MYVIMRC")
+    vim.notify("Neovim configuration reloaded!", vim.log.levels.INFO)
+end
+
+vim.keymap.set('n', '<leader>z', ReloadConfig, { desc = 'Reload Neovim config' })
 vim.keymap.set('n', '<leader>x', '<cmd>source %<CR>', { desc = 'Execute the current file' })
-vim.keymap.set('n', '<leader>sl', [[:%s#\<<C-r><C-w>\>##gI<Left><Left><Left>]], { desc = '[S]earch and replace [L]ocally' })
+vim.keymap.set('n', '<leader>sl', [[:%s#\<<C-r><C-w>\>##gI<Left><Left><Left>]],
+    { desc = '[S]earch and replace [L]ocally' })
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
@@ -21,8 +32,14 @@ vim.keymap.set('x', 'p', [["_dP]])
 -- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
 -- or just use <C-\><C-n> to exit terminal mode
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
-vim.keymap.set('n', '<S-u>', function()
-    vim.diagnostic.open_float()
+vim.keymap.set('n', 'U', function()
+    local diagnostics = vim.diagnostic.get(0) -- Get diagnostics for the current buffer
+
+    if #diagnostics > 0 then
+        vim.diagnostic.open_float() -- Show diagnostics in a floating window
+    else
+        vim.notify("No Diagnostic Found", vim.log.levels.INFO)
+    end
 end, { desc = 'Open diagnostic floating' })
 
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
@@ -85,7 +102,8 @@ vim.keymap.set('n', 'j', function()
     end
 end, {
     expr = true,
-    desc = 'place "previous context" mark before moving more than one line down using `j`, so it is added to the jumplist and Ctrl-o will go back to this spot',
+    desc =
+    'place "previous context" mark before moving more than one line down using `j`, so it is added to the jumplist and Ctrl-o will go back to this spot',
 })
 
 vim.keymap.set('n', 'k', function()
@@ -96,5 +114,6 @@ vim.keymap.set('n', 'k', function()
     end
 end, {
     expr = true,
-    desc = 'place "previous context" mark before moving more than one line down using `k`, so it is added to the jumplist and Ctrl-o will go back to this spot',
+    desc =
+    'place "previous context" mark before moving more than one line down using `k`, so it is added to the jumplist and Ctrl-o will go back to this spot',
 })

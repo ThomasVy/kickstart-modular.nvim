@@ -13,6 +13,8 @@
 --    :Mason
 --
 --  You can press `g?` for help in this menu.
+require('custom.custom_lsps.rust')
+
 local servers = {
     clangd = {
         filetypes = { 'c', 'cpp', 'objc', 'objcpp' },
