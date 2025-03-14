@@ -7,21 +7,20 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 function ReloadConfig()
     for name, _ in pairs(package.loaded) do
-        if name:match("^user") or name:match("^plugins") then
+        if name:match '^user' or name:match '^plugins' then
             package.loaded[name] = nil
         end
     end
-    vim.cmd("source $MYVIMRC")
-    vim.notify("Neovim configuration reloaded!", vim.log.levels.INFO)
+    vim.cmd 'source $MYVIMRC'
+    vim.notify('Neovim configuration reloaded!', vim.log.levels.INFO)
 end
 
 vim.keymap.set('n', '<leader>z', ReloadConfig, { desc = 'Reload Neovim config' })
 vim.keymap.set('n', '<leader>x', '<cmd>source %<CR>', { desc = 'Execute the current file' })
-vim.keymap.set('n', '<leader>sl', [[:%s#\<<C-r><C-w>\>##gI<Left><Left><Left>]],
-    { desc = '[S]earch and replace [L]ocally' })
+vim.keymap.set('n', '<leader>sl', [[:%s#\<<C-r><C-w>\>##gI<Left><Left><Left>]], { desc = '[S]earch and replace [L]ocally' })
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', function()
-    if vim.diagnostic.get(0) == nil then
+    if vim.tbl_isempty(vim.diagnostic.get(0)) then
         vim.notify('No diagnostics found', vim.log.levels.INFO)
         return
     end
@@ -45,7 +44,7 @@ vim.keymap.set('n', 'U', function()
     if #diagnostics > 0 then
         vim.diagnostic.open_float() -- Show diagnostics in a floating window
     else
-        vim.notify("No Diagnostic Found", vim.log.levels.INFO)
+        vim.notify('No Diagnostic Found', vim.log.levels.INFO)
     end
 end, { desc = 'Open diagnostic floating' })
 
@@ -109,8 +108,7 @@ vim.keymap.set('n', 'j', function()
     end
 end, {
     expr = true,
-    desc =
-    'place "previous context" mark before moving more than one line down using `j`, so it is added to the jumplist and Ctrl-o will go back to this spot',
+    desc = 'place "previous context" mark before moving more than one line down using `j`, so it is added to the jumplist and Ctrl-o will go back to this spot',
 })
 
 vim.keymap.set('n', 'k', function()
@@ -121,6 +119,5 @@ vim.keymap.set('n', 'k', function()
     end
 end, {
     expr = true,
-    desc =
-    'place "previous context" mark before moving more than one line down using `k`, so it is added to the jumplist and Ctrl-o will go back to this spot',
+    desc = 'place "previous context" mark before moving more than one line down using `k`, so it is added to the jumplist and Ctrl-o will go back to this spot',
 })
