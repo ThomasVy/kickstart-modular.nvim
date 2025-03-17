@@ -13,6 +13,34 @@ local setup = function(ensured_installed)
     })
     -- Autoformatting Setup
     local conform = require 'conform'
+    local notify = require("notify")
+
+    local function show_notification(message)
+        notify(message, "info", { title = "conform.nvim" })
+    end
+
+    vim.api.nvim_create_user_command("FormatToggle", function(args)
+        local is_global = not args.bang
+        if is_global then
+            vim.g.disable_autoformat = not vim.g.disable_autoformat
+            if vim.g.disable_autoformat then
+                show_notification("Autoformat-on-save disabled globally")
+            else
+                show_notification("Autoformat-on-save enabled globally")
+            end
+        else
+            vim.b.disable_autoformat = not vim.b.disable_autoformat
+            if vim.b.disable_autoformat then
+                show_notification("Autoformat-on-save disabled for this buffer")
+            else
+                show_notification("Autoformat-on-save enabled for this buffer")
+            end
+        end
+    end, {
+        desc = "Toggle autoformat-on-save",
+        bang = true,
+    })
+
     conform.setup {
         formatters_by_ft = {
             lua = { 'stylua' },
@@ -29,17 +57,18 @@ local setup = function(ensured_installed)
             c = { "clang_format" },
             cpp = { "clang_format" },
         },
-        -- format_on_save = {
-        --     -- enable only if environment variable is set
-        --     enabled = not vim.env.DONT_AUTOFORMAT_ON_SAVE,
-        --     lsp_format = 'fallback',
-        --     timeout_ms = 500,
-        -- },
-        format_after_save = {
-            enabled = not vim.env.DONT_AUTOFORMAT_AFTER_SAVE,
-            async = true,
-            lsp_format = 'fallback',
-        },
+
+        format_after_save = function(bufnr)
+            if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+                return
+            end
+            return
+            {
+                async = true,
+                lsp_format = 'fallback',
+            }
+        end
+        ,
         formatters = {
             isort = {
                 command = 'isort',
