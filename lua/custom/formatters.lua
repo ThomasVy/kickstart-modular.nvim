@@ -5,6 +5,7 @@ local setup = function(ensured_installed)
         'tailwindcss-language-server',
         'prettier',
         'fixjson',
+        'hadolint'
         -- 'clangd',
         -- 'isort',
         -- 'black',
@@ -32,6 +33,7 @@ local setup = function(ensured_installed)
             terraform = { "terraform_fmt" },
             tf = { "terraform_fmt" },
             ["terraform-vars"] = { "terraform_fmt" },
+            dockerfile = { "hadolint" }
         },
         -- format_on_save = {
         --     -- enable only if environment variable is set
