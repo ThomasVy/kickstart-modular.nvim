@@ -16,6 +16,7 @@ return {
         gitsigns = true,
         treesitter = true,
         harpoon = true,
+        blink_cmp = true,
         telescope = true,
         mason = true,
         noice = true,
