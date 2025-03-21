@@ -75,7 +75,7 @@ vim.opt.termguicolors = true
 -- when indenting with '>', use 4 spaces width
 vim.opt.shiftwidth = 4
 
-vim.opt.colorcolumn = '80'
+-- vim.opt.colorcolumn = '80'
 vim.opt.wrap = false
 -- on pressing tab, insert 4 spaces
 vim.opt.expandtab = true
