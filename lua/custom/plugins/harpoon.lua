@@ -15,9 +15,6 @@ return {
         vim.keymap.set('n', '<leader>nc', function()
             harpoon:list():clear()
         end, { desc = 'Harpoo[N] [C]lear' })
-        vim.keymap.set('n', '<leader>h', function()
-            harpoon:list():prev { ui_nav_wrap = true }
-        end, { desc = 'Harpoon Previous' })
         vim.keymap.set('n', '<leader>l', function()
             harpoon:list():next { ui_nav_wrap = true }
         end, { desc = 'Harpoon Next' })

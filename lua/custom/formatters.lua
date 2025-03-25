@@ -55,6 +55,7 @@ local setup = function(ensured_installed)
             rust = { 'rustfmt', lsp_format = 'fallback' },
             cmake = { 'cmake_format' },
             json = { 'fixjson' },
+            protocolbuf = { 'clang-format' },
             c = { "clang-format" },
             cpp = { "clang-format" },
             hcl = { "packer_fmt" },
