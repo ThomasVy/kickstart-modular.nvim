@@ -17,7 +17,8 @@ end
 
 vim.keymap.set('n', '<leader>z', ReloadConfig, { desc = 'Reload Neovim config' })
 vim.keymap.set('n', '<leader>x', '<cmd>source %<CR>', { desc = 'Execute the current file' })
-vim.keymap.set('n', '<leader>sl', [[:%s#\<<C-r><C-w>\>##gI<Left><Left><Left>]], { desc = '[S]earch and replace [L]ocally' })
+vim.keymap.set('n', '<leader>sl', [[:%s#\<<C-r><C-w>\>##gI<Left><Left><Left>]],
+    { desc = '[S]earch and replace [L]ocally' })
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', function()
     if vim.tbl_isempty(vim.diagnostic.get(0)) then
@@ -52,7 +53,7 @@ vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 
 vim.keymap.set({ 'n', 'v', 'o' }, 'L', '$')
-vim.keymap.set({ 'n', 'v', 'o' }, 'H', '^')
+vim.keymap.set({ 'n', 'v', 'o' }, 'H', '0')
 
 vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
 -- Does another search and replace on the word you just replaced --
@@ -108,7 +109,8 @@ vim.keymap.set('n', 'j', function()
     end
 end, {
     expr = true,
-    desc = 'place "previous context" mark before moving more than one line down using `j`, so it is added to the jumplist and Ctrl-o will go back to this spot',
+    desc =
+    'place "previous context" mark before moving more than one line down using `j`, so it is added to the jumplist and Ctrl-o will go back to this spot',
 })
 
 vim.keymap.set('n', 'k', function()
@@ -119,5 +121,6 @@ vim.keymap.set('n', 'k', function()
     end
 end, {
     expr = true,
-    desc = 'place "previous context" mark before moving more than one line down using `k`, so it is added to the jumplist and Ctrl-o will go back to this spot',
+    desc =
+    'place "previous context" mark before moving more than one line down using `k`, so it is added to the jumplist and Ctrl-o will go back to this spot',
 })
