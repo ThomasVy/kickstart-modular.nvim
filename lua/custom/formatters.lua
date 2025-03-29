@@ -53,7 +53,7 @@ local setup = function(ensured_installed)
             groovy = { 'npm-groovy-lint' },
             go = { 'goimports', 'gofmt' },
             rust = { 'rustfmt', lsp_format = 'fallback' },
-            cmake = { 'cmake_format' },
+            cmake = { 'gersemi' },
             json = { 'fixjson' },
             protocolbuf = { 'clang-format' },
             c = { "clang-format" },
