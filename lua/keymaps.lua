@@ -5,6 +5,7 @@
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
+
 function ReloadConfig()
     for name, _ in pairs(package.loaded) do
         if name:match '^user' or name:match '^plugins' then
@@ -20,14 +21,7 @@ vim.keymap.set('n', '<leader>x', '<cmd>source %<CR>', { desc = 'Execute the curr
 vim.keymap.set('n', '<leader>sl', [[:%s#\<<C-r><C-w>\>##gI<Left><Left><Left>]],
     { desc = '[S]earch and replace [L]ocally' })
 -- Diagnostic keymaps
-vim.keymap.set('n', '<leader>q', function()
-    if vim.tbl_isempty(vim.diagnostic.get(0)) then
-        vim.notify('No diagnostics found', vim.log.levels.INFO)
-        return
-    end
-
-    vim.diagnostic.setqflist { open = true }
-end, { desc = 'Open diagnostic [Q]uickfix list' })
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
 vim.keymap.set('n', '<leader>p', '<cmd>NoiceDismiss<CR>', { desc = 'Dismiss noice' })
 vim.keymap.set('n', '<leader>P', '<cmd>Telescope noice<CR>', { desc = 'Open noice message' })
