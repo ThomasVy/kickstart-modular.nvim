@@ -22,6 +22,11 @@ local servers = {
             on_attach = {
                 vim.keymap.set('n', '<leader>o', '<Cmd>ClangdSwitchSourceHeader<CR>', { silent = true }),
             },
+            clangd = {
+                fallbackFlags = {
+                    '-std=c++20'
+                }
+            }
         },
         cmd = {
             "clangd",
@@ -31,7 +36,7 @@ local servers = {
             "--completion-style=detailed",
             "--function-arg-placeholders",
             "--fallback-style=llvm"
-        }
+        },
     },
     dockerls = {},
     docker_compose_language_service = {},
