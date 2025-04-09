@@ -14,11 +14,6 @@ return {
   },
   { 'Bilal2453/luvit-meta', lazy = true },
   {
-    "chrisgrieser/nvim-lsp-endhints",
-    event = "LspAttach",
-    opts = {}, -- required, even if empty
-  },
-  {
     -- Main LSP Configuration
     'neovim/nvim-lspconfig',
     dependencies = {
