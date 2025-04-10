@@ -16,7 +16,8 @@ return function(opts)
             ['l'] = '*.lua',
             ['v'] = '*.vim',
             ['n'] = '*.{vim,lua}',
-            ['c'] = '*.c',
+            ['c'] = '*.{c,cpp,h,hpp}',
+            ['m'] = 'CMakeLists.txt',
             ['r'] = '*.rs',
             ['g'] = '*.go',
         }
@@ -31,19 +32,31 @@ return function(opts)
             local prompt_split = vim.split(prompt, '  ')
 
             local args = { 'rg' }
-            if prompt_split[1] then
-                table.insert(args, '-e')
-                table.insert(args, prompt_split[1])
+            local startingIndex = 1
+            if prompt_split[startingIndex] == '' then
+                startingIndex = startingIndex + 1
+                -- if no prompt is given, we don't continue
+                if prompt_split[startingIndex] == '' then
+                    return
+                end
+            else
+                table.insert(args, '--fixed-strings')
             end
 
-            if prompt_split[2] then
+
+            if prompt_split[startingIndex] then
+                table.insert(args, '-e')
+                table.insert(args, prompt_split[startingIndex])
+            end
+
+            if prompt_split[startingIndex + 1] then
                 table.insert(args, '-g')
 
                 local pattern
-                if opts.shortcuts[prompt_split[2]] then
-                    pattern = opts.shortcuts[prompt_split[2]]
+                if opts.shortcuts[prompt_split[startingIndex + 1]] then
+                    pattern = opts.shortcuts[prompt_split[startingIndex + 1]]
                 else
-                    pattern = prompt_split[2]
+                    pattern = prompt_split[startingIndex + 1]
                 end
 
                 table.insert(args, string.format(opts.pattern, pattern))
