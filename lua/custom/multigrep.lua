@@ -37,7 +37,7 @@ return function(opts)
                 startingIndex = startingIndex + 1
                 -- if no prompt is given, we don't continue
                 if prompt_split[startingIndex] == '' then
-                    return
+                    return nil
                 end
             else
                 table.insert(args, '--fixed-strings')
