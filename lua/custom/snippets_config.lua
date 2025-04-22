@@ -53,3 +53,14 @@ vim.keymap.set({ "i", "s" }, "<M-h>", function()
   return vim.snippet.active { direction = -1 } and vim.snippet.jump(-1)
 end, { silent = true })
 
+-- vim.api.nvim_create_autocmd('ModeChanged', {
+--   pattern = '*',
+--   callback = function()
+--     if ((vim.v.event.old_mode == 's' and vim.v.event.new_mode == 'n') or vim.v.event.old_mode == 'i')
+--         and require('luasnip').session.current_nodes[vim.api.nvim_get_current_buf()]
+--         and not require('luasnip').session.jump_active
+--     then
+--       require('luasnip').unlink_current()
+--     end
+--   end
+-- })
