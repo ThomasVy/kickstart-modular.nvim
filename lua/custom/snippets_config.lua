@@ -36,8 +36,9 @@ vim.snippet.stop = ls.unlink_current
 --      My Configuration
 -- ================================================
 ls.config.set_config {
-  history = true,
-  updateevents = "TextChanged,TextChangedI",
+  history = false,
+  region_check_events = "InsertEnter,CursorMoved",
+  update_events = "TextChanged,TextChangedI",
   override_builtin = true,
 }
 
