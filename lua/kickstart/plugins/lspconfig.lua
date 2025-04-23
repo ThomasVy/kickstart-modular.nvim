@@ -136,13 +136,6 @@ return {
               callback = vim.lsp.buf.document_highlight,
             })
 
-            -- maybe
-            vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
-              callback = function()
-                vim.diagnostic.open_float(nil, { focus = false, scope = "cursor" })
-              end
-            })
-
             vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
               buffer = event.buf,
               group = highlight_augroup,
