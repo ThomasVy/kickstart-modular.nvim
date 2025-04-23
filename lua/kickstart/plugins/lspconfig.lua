@@ -79,6 +79,10 @@ return {
           --  To jump back, press <C-t>.
           map('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
 
+          vim.keymap.set('n', 'gx', function()
+            return ':vsplit | lua vim.lsp.buf.definition()<CR>'
+          end, { expr = true, desc = '[G]oto Definition[x] vsplit' })
+
           -- Find references for the word under your cursor.
           map('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
 
