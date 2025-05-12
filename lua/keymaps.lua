@@ -47,7 +47,7 @@ vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 
 vim.keymap.set({ 'n', 'v', 'o' }, 'L', '$')
-vim.keymap.set({ 'n', 'v', 'o' }, 'H', '0')
+vim.keymap.set({ 'n', 'v', 'o' }, 'H', '^')
 
 vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
 -- Does another search and replace on the word you just replaced --
