@@ -43,6 +43,7 @@ vim.keymap.set('n', 'U', function()
     end
 end, { desc = 'Open diagnostic floating' })
 
+vim.keymap.set('n', '<leader>gm', "<cmd>CopilotChat<Cr>", { desc = 'Open Copilot Chat' })
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 
