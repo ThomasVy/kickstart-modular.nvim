@@ -7,10 +7,10 @@ return {
     },
     opts = {
       mappings = {
-        -- complete = {
-        --   detail = "Use @<Tab> or /<Tab> for options.",
-        --   insert = "<C-Space>"
-        -- }
+        -- Use tab for completion
+        complete = {
+          insert = "", -- Explicitly set an empty string. It lets regular copilot plugin overrides CopilotChat.nvim
+        }
       },
     },
   },
