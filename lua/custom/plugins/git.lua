@@ -10,7 +10,11 @@ return {
         -- Use tab for completion
         complete = {
           insert = "", -- Explicitly set an empty string. It lets regular copilot plugin overrides CopilotChat.nvim
-        }
+        },
+        reset = {
+          normal = "<C-x>",
+          insert = "<C-x>",
+        },
       },
     },
   },
