@@ -16,6 +16,7 @@ return {
           insert = "<C-x>",
         },
       },
+      model = 'claude-sonnet-4'
     },
   },
   {
