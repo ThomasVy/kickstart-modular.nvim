@@ -16,7 +16,9 @@ return {
           insert = "<C-x>",
         },
       },
-      model = 'claude-sonnet-4'
+      model = 'claude-sonnet-4',
+      auto_insert_mode = false,
+      context = 'buffer'
     },
   },
   {
