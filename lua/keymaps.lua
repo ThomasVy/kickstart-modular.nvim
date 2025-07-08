@@ -70,8 +70,8 @@ vim.keymap.set({ 'n', 'v' }, '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the 
 -- Quickfix list
 vim.keymap.set('n', '<M-j>', '<CMD>cnext<CR>', { desc = 'Go to the next item in the quickfix list' })
 vim.keymap.set('n', '<M-k>', '<CMD>cprev<CR>', { desc = 'Go to the previous item in the quickfix list' })
-vim.keymap.set('n', '<M-c>', '<CMD>cclose<CR>', { desc = 'Close the quickfix list' })
-vim.keymap.set('n', '<M-o>', '<CMD>copen<CR>', { desc = 'Open the quickfix list' })
+-- vim.keymap.set('n', '<M-c>', '<CMD>cclose<CR>', { desc = 'Close the quickfix list' })
+-- vim.keymap.set('n', '<M-o>', '<CMD>copen<CR>', { desc = 'Open the quickfix list' })
 
 -- These mappings control the size of splits (height/width)
 vim.keymap.set('n', '<M-,>', '<c-w>5<')
