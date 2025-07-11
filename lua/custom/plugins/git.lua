@@ -2,7 +2,9 @@ return {
   {
     "CopilotC-Nvim/CopilotChat.nvim",
     dependencies = {
-      { "github/copilot.vim" },                       -- or zbirenbaum/copilot.lua
+      {
+        "github/copilot.vim"
+      },
       { "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
     },
     opts = {
@@ -17,7 +19,7 @@ return {
         },
       },
       model = 'claude-sonnet-4',
-      auto_insert_mode = true,
+      auto_insert_mode = false,
       context = 'buffer'
     },
   },
