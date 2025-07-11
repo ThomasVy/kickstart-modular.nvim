@@ -17,7 +17,7 @@ return {
         },
       },
       model = 'claude-sonnet-4',
-      auto_insert_mode = false,
+      auto_insert_mode = true,
       context = 'buffer'
     },
   },
