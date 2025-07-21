@@ -1,23 +1,37 @@
 return {
-  "nvim-neotest/neotest",
+  -- "nvim-neotest/neotest",
+  -- dependencies = {
+  --   "nvim-neotest/nvim-nio",
+  --   "nvim-lua/plenary.nvim",
+  --   "antoinemadec/FixCursorHold.nvim",
+  --   "nvim-treesitter/nvim-treesitter",
+  --
+  --
+  --   "nvim-neotest/neotest-vim-test",
+  --   "vim-test/vim-test"
+  -- },
+  -- config = function()
+  --   require("neotest").setup({
+  --     adapters = {
+  --       require("neotest-vim-test")({ allow_file_types = { "haskell", "elixir" } }),
+  --     }
+  --   })
+  -- end,
+  'vim-test/vim-test',
   dependencies = {
-    "nvim-neotest/nvim-nio",
-    "nvim-lua/plenary.nvim",
-    "alfaix/neotest-gtest",
-    "antoinemadec/FixCursorHold.nvim",
-    "nvim-treesitter/nvim-treesitter"
+    'tpope/vim-dispatch', -- Recommended for async execution
   },
   config = function()
-    require("neotest").setup({
-      adapters = {
-        require("neotest-gtest").setup({})
-      }
-    })
+    -- vim-test configuration (example)
+    vim.g['test#framework'] = 'google_test' -- Or 'google_test', 'ctest', 'pytest', etc.
+    vim.g['test#neovim_only'] = 1
+    vim.g['test#cpp#google_test#make_command'] = 'cl'
+
+    -- Keybindings (example)
+    vim.api.nvim_set_keymap('n', '<leader>tn', ':TestNearest<CR>', { noremap = true, silent = true })
+    vim.api.nvim_set_keymap('n', '<leader>ts', ':TestSuite<CR>', { noremap = true, silent = true })
+    vim.api.nvim_set_keymap('n', '<leader>tf', ':TestFile<CR>', { noremap = true, silent = true })
+    vim.api.nvim_set_keymap('n', '<leader>tl', ':TestLast<CR>', { noremap = true, silent = true })
+    vim.api.nvim_set_keymap('n', '<leader>ts', ':TestVisit<CR>', { noremap = true, silent = true })
   end,
-  keys = {
-    { "<leader>tn", "<cmd>lua require('neotest').run.run()<CR>",                     desc = "Run nearest test" },
-    { "<leader>tf", "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<CR>",   desc = "Run tests in file" },
-    { "<leader>ts", "<cmd>lua require('neotest').summary.toggle()<CR>",              desc = "Toggle test summary" },
-    { "<leader>to", "<cmd>lua require('neotest').output.open({ enter = true })<CR>", desc = "Open test output" }
-  }
 }
