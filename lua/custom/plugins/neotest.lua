@@ -14,6 +14,21 @@ return {
     require("neotest").setup({
       adapters = {
         require("neotest-gtest").setup({
+
+          is_test_file = function(file_path)
+            local elems = vim.split(file_path, require("neotest.lib").files.sep, { plain = true })
+            local filename = elems[#elems]
+            if filename == "" then -- directory
+              return false
+            end
+            local extsplit = vim.split(filename, ".", { plain = true })
+            local extension = extsplit[#extsplit]
+            local fname_last_part = extsplit[#extsplit - 1]
+            local result = extension == "cpp"
+                and (vim.startswith(filename, "test_") or vim.startswith(filename, "Test"))
+            return result
+          end,
+
         })
       }
     })
