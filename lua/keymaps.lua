@@ -18,8 +18,6 @@ end
 
 vim.keymap.set('n', '<leader>z', ReloadConfig, { desc = 'Reload Neovim config' })
 vim.keymap.set('n', '<leader>x', '<cmd>source %<CR>', { desc = 'Execute the current file' })
-vim.keymap.set('n', '<leader>sl', [[:%s#\<<C-r><C-w>\>##gI<Left><Left><Left>]],
-    { desc = '[S]earch and replace [L]ocally' })
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
@@ -51,7 +49,6 @@ vim.keymap.set({ 'n', 'v', 'o' }, 'L', '$')
 vim.keymap.set({ 'n', 'v', 'o' }, 'H', '^')
 
 vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
--- Does another search and replace on the word you just replaced --
 vim.keymap.set('n', 'g.', '/\\V\\C<C-r>"<CR>cgn<C-a><Esc>')
 
 -- Adds line down
