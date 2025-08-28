@@ -10,5 +10,8 @@ return {
       end,
     })
     vim.o.foldlevel = 99
+    vim.o.foldcolumn = "1"
+    vim.o.foldcolumn = 'auto:9'
+    vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
   end,
 }
