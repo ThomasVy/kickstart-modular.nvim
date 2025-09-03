@@ -15,7 +15,7 @@ local fmt = require("luasnip.extras.fmt").fmt
 
 -- Function to get the current filename
 local function get_filename(_, snip)
-  return snip.env.TM_FILENAME_BASE or "default_filename.txt"
+   return snip.env.TM_FILENAME_BASE or "default_filename.txt"
 end
 
 ls.add_snippets("typescriptreact", {
@@ -57,10 +57,10 @@ ls.add_snippets("typescriptreact", {
             }}
          ]],
          {
-            f(get_filename, {}),
-            f(get_filename, {}),
-            f(get_filename, {}),
-            i(1, "<h1>Hello World</h1>")
+            i(1, "Component"),
+            rep(1),
+            rep(1),
+            i(2, "<h1>Hello World</h1>")
          }
       )
    )
