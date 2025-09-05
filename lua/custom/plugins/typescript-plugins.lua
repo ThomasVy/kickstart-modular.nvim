@@ -12,5 +12,13 @@ return {
       })
     end
   },
-  { 'dmmulroy/ts-error-translator.nvim' }
+  {
+    'dmmulroy/ts-error-translator.nvim',
+    config = function()
+      require('ts-error-translator').setup({
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+      })
+    end
+  }
 }

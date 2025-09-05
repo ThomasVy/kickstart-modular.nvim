@@ -38,10 +38,8 @@ local servers = {
             "--fallback-style=llvm"
         },
     },
-    dockerls = {},
-    docker_compose_language_service = {},
-    terraformls = {},
-    -- gopls = {},
+    tailwindcss = {},
+    delve = {},
     pyright = {},
     -- rust_analyzer = {} Don't install!! Install the rust-analyzer via
     -- rustup add component rust-analyzer
