@@ -32,6 +32,7 @@ return {
       instructions_file = "avante.md",
       -- for example
       provider = "copilot",
+      mode = "legacy" -- "legacy" | "agentic"
     },
     behaviour = {
       auto_apply_diff_after_generation = false,
