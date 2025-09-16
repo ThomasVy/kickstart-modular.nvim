@@ -32,11 +32,28 @@ return {
       instructions_file = "avante.md",
       -- for example
       provider = "copilot",
-      mode = "legacy" -- "legacy" | "agentic"
-    },
-    behaviour = {
-      auto_apply_diff_after_generation = false,
-      enable_fastapply = false,
+      mode = "legacy",           -- "legacy" | "agentic"
+      behaviour = {
+        auto_suggestions = true, -- Experimental stage
+        auto_set_highlight_group = true,
+        auto_set_keymaps = true,
+        auto_apply_diff_after_generation = true,
+        auto_focus_on_diff_view = true,
+        support_paste_from_clipboard = false,
+        minimize_diff = true,
+        enable_token_counting = true,          -- Whether to enable token counting. Default to true.
+        auto_approve_tool_permissions = false, -- Default: show permission prompts for all tools
+      },
+      windows = {
+        sidebar_header = {
+          enabled = false,
+        }
+      },
+      mappings = {
+        sidebar = {
+          close_from_input = { normal = "q" }
+        }
+      },
     },
     dependencies = {
       "nvim-lua/plenary.nvim",
