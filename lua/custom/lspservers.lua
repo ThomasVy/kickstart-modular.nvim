@@ -39,7 +39,7 @@ local servers = {
         },
     },
     tailwindcss = {},
-    delve = {},
+    -- delve = {},
     pyright = {},
     -- rust_analyzer = {} Don't install!! Install the rust-analyzer via
     -- rustup add component rust-analyzer
