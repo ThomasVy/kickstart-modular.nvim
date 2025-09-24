@@ -5,30 +5,32 @@ return {
     "nvim-lua/plenary.nvim",
     "antoinemadec/FixCursorHold.nvim",
     "nvim-treesitter/nvim-treesitter",
-
-
-    "nvim-neotest/neotest-vim-test",
-    "alfaix/neotest-gtest"
+    "orjangj/neotest-ctest",
   },
   config = function()
+    -- Optional, but recommended, if you have enabled neotest's diagnostic option
+    local neotest_ns = vim.api.nvim_create_namespace("neotest")
+    vim.diagnostic.config({
+      virtual_text = {
+        format = function(diagnostic)
+          -- Convert newlines, tabs and whitespaces into a single whitespace
+          -- for improved virtual text readability
+          local message = diagnostic.message:gsub("[\r\n\t%s]+", " ")
+          return message
+        end,
+      },
+    }, neotest_ns)
+
     require("neotest").setup({
       adapters = {
-        require("neotest-gtest").setup({
+        -- Load with default config
+        require("neotest-ctest").setup({
+          is_test_file = function(file)
+            -- by default, returns true if the file stem ends with _test and the file extension is
+            -- one of cpp/cc/cxx.
 
-          is_test_file = function(file_path)
-            local elems = vim.split(file_path, require("neotest.lib").files.sep, { plain = true })
-            local filename = elems[#elems]
-            if filename == "" then -- directory
-              return false
-            end
-            local extsplit = vim.split(filename, ".", { plain = true })
-            local extension = extsplit[#extsplit]
-            local fname_last_part = extsplit[#extsplit - 1]
-            local result = extension == "cpp"
-                and (vim.startswith(filename, "test_") or vim.startswith(filename, "Test"))
-            return result
+            return file:match("test") and file:match("%.cpp$") or file:match("%.cc$") or file:match("%.cxx$")
           end,
-
         })
       }
     })
