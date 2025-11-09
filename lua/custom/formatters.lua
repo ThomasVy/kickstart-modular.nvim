@@ -14,10 +14,9 @@ local setup = function(ensured_installed)
     })
     -- Autoformatting Setup
     local conform = require 'conform'
-    local notify = require("notify")
 
     local function show_notification(message)
-        notify(message, "info", { title = "conform.nvim" })
+        vim.notify(message)
     end
 
     vim.api.nvim_create_user_command("FormatToggle", function(args)
