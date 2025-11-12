@@ -20,7 +20,7 @@ local servers = {
         filetypes = { 'c', 'cpp', 'objc', 'objcpp' },
         settings = {
             on_attach = {
-                vim.keymap.set('n', '<M-o>', '<Cmd>ClangdSwitchSourceHeader<CR>', { silent = true }),
+                vim.keymap.set('n', '<M-o>', '<Cmd>LspClangdSwitchSourceHeader<CR>', { silent = true }),
             },
             clangd = {
                 fallbackFlags = {
