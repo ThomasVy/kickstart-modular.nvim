@@ -17,10 +17,38 @@ ls.add_snippets("cpp", {
         [[
     #include <iostream>
 
-    int main(int argc, char* argv[]) {{
+   int main(int argc, char* argv[]) {{
         std::cout << "Hello World\n";
         {}
         return 0;
     }}
     ]], { i(1) })),
+
+    s("class", fmt(
+        [[
+    #pragma once
+    class {} {{
+    public:
+        explicit {}();
+        ~{}();
+    private:
+        {}
+    }};
+    ]], { i(1), rep(1), rep(1), i(2) })),
+
+    s("test", fmt(
+        [[
+    #include <gtest/gtest.h>
+    class {}Test : public ::testing::Test {{
+    public::
+        {}Test() {{}}
+
+    private:
+        {} patient_;
+    }};
+    TEST_F({}Test, {}) {{
+        {}
+    }}
+    ]], { i(1), rep(1), i(2), rep(1), i(3), i(4) })),
+
 })

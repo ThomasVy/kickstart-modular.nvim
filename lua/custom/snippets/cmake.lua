@@ -13,7 +13,7 @@ local f = ls.function_node
 local fmt = require("luasnip.extras.fmt").fmt
 
 ls.add_snippets("cmake", {
-    s("cmakelib", fmt(
+    s("lib", fmt(
         [[
         set(PROJECT_NAME "{}")
 
