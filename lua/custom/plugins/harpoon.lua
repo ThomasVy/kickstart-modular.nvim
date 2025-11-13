@@ -12,15 +12,15 @@ return {
             harpoon.ui:toggle_quick_menu(harpoon:list())
         end, { desc = 'Harpoo[N] [L]ist' })
 
-        vim.keymap.set('n', '<leader>nc', function()
-            harpoon:list():clear()
-        end, { desc = 'Harpoo[N] [C]lear' })
+        -- vim.keymap.set('n', '<leader>nc', function()
+        --     harpoon:list():clear()
+        -- end, { desc = 'Harpoo[N] [C]lear' })
 
         vim.keymap.set('n', '<leader>l', function()
             harpoon:list():next { ui_nav_wrap = true }
         end, { desc = 'Harpoon Next' })
 
-        vim.keymap.set('n', '<leader>a', function()
+        vim.keymap.set('n', '<M-a>', function()
             harpoon:list():add()
         end, { desc = 'Harpoon Add' })
 
@@ -38,18 +38,18 @@ return {
             harpoon:list():select(4)
         end, { desc = 'Harpoon 4' })
 
-        --replace
-        vim.keymap.set('n', '<leader>nra', function()
-            harpoon:list():replace_at(1)
-        end, { desc = 'Replace Harpoon 1' })
-        vim.keymap.set('n', '<leader>nrs', function()
-            harpoon:list():replace_at(2)
-        end, { desc = 'Replace Harpoon 2' })
-        vim.keymap.set('n', '<leader>nrd', function()
-            harpoon:list():replace_at(3)
-        end, { desc = 'Replace Harpoon 3' })
-        vim.keymap.set('n', '<leader>nrf', function()
-            harpoon:list():replace_at(4)
-        end, { desc = 'Replace Harpoon 4' })
+        -- --replace
+        -- vim.keymap.set('n', '<leader>nra', function()
+        --     harpoon:list():replace_at(1)
+        -- end, { desc = 'Replace Harpoon 1' })
+        -- vim.keymap.set('n', '<leader>nrs', function()
+        --     harpoon:list():replace_at(2)
+        -- end, { desc = 'Replace Harpoon 2' })
+        -- vim.keymap.set('n', '<leader>nrd', function()
+        --     harpoon:list():replace_at(3)
+        -- end, { desc = 'Replace Harpoon 3' })
+        -- vim.keymap.set('n', '<leader>nrf', function()
+        --     harpoon:list():replace_at(4)
+        -- end, { desc = 'Replace Harpoon 4' })
     end,
 }

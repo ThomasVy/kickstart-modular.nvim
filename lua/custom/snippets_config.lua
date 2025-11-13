@@ -46,11 +46,11 @@ for _, ft_path in ipairs(vim.api.nvim_get_runtime_file("lua/custom/snippets/*.lu
   loadfile(ft_path)()
 end
 
-vim.keymap.set({ "i", "s" }, "<M-l>", function()
+vim.keymap.set({ "i", "s" }, "<M-n>", function()
   return vim.snippet.active { direction = 1 } and vim.snippet.jump(1)
 end, { silent = true })
 
-vim.keymap.set({ "i", "s" }, "<M-h>", function()
+vim.keymap.set({ "i", "s" }, "<M-p>", function()
   return vim.snippet.active { direction = -1 } and vim.snippet.jump(-1)
 end, { silent = true })
 

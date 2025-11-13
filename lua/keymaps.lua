@@ -41,7 +41,6 @@ vim.keymap.set('n', 'U', function()
     end
 end, { desc = 'Open diagnostic floating' })
 
-vim.keymap.set('n', '<M-/>', "<cmd>CopilotChat<Cr>", { desc = 'Open Copilot Chat' })
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 
@@ -65,8 +64,8 @@ vim.keymap.set({ 'n', 'v' }, '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the 
 vim.keymap.set({ 'n', 'v' }, '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- Quickfix list
-vim.keymap.set('n', '<M-j>', '<CMD>cnext<CR>', { desc = 'Go to the next item in the quickfix list' })
-vim.keymap.set('n', '<M-k>', '<CMD>cprev<CR>', { desc = 'Go to the previous item in the quickfix list' })
+-- vim.keymap.set('n', '<M-j>', '<CMD>cnext<CR>', { desc = 'Go to the next item in the quickfix list' })
+-- vim.keymap.set('n', '<M-k>', '<CMD>cprev<CR>', { desc = 'Go to the previous item in the quickfix list' })
 -- vim.keymap.set('n', '<M-c>', '<CMD>cclose<CR>', { desc = 'Close the quickfix list' })
 -- vim.keymap.set('n', '<M-o>', '<CMD>copen<CR>', { desc = 'Open the quickfix list' })
 
