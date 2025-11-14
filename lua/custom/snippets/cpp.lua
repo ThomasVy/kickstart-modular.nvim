@@ -39,16 +39,17 @@ ls.add_snippets("cpp", {
     s("test", fmt(
         [[
     #include <gtest/gtest.h>
+    #include "{}"
     class {}Test : public ::testing::Test {{
-    public::
+    public:
         {}Test() {{}}
 
-    private:
+    protected:
         {} patient_;
     }};
     TEST_F({}Test, {}) {{
         {}
     }}
-    ]], { i(1), rep(1), i(2), rep(1), i(3), i(4) })),
+    ]], { i(1), i(2), rep(2), rep(2), rep(2), i(3, "TestCase1"), i(4, "ASSERT_TRUE(false);") })),
 
 })

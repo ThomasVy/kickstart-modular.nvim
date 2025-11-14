@@ -64,8 +64,8 @@ vim.keymap.set({ 'n', 'v' }, '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the 
 vim.keymap.set({ 'n', 'v' }, '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- Quickfix list
--- vim.keymap.set('n', '<M-j>', '<CMD>cnext<CR>', { desc = 'Go to the next item in the quickfix list' })
--- vim.keymap.set('n', '<M-k>', '<CMD>cprev<CR>', { desc = 'Go to the previous item in the quickfix list' })
+vim.keymap.set('n', '<M-i>', '<CMD>cnext<CR>', { desc = 'Go to the next item in the quickfix list' })
+vim.keymap.set('n', '<M-u>', '<CMD>cprev<CR>', { desc = 'Go to the previous item in the quickfix list' })
 -- vim.keymap.set('n', '<M-c>', '<CMD>cclose<CR>', { desc = 'Close the quickfix list' })
 -- vim.keymap.set('n', '<M-o>', '<CMD>copen<CR>', { desc = 'Open the quickfix list' })
 
