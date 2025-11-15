@@ -72,8 +72,8 @@ vim.keymap.set('n', '<M-u>', '<CMD>cprev<CR>', { desc = 'Go to the previous item
 -- These mappings control the size of splits (height/width)
 vim.keymap.set('n', '<M-,>', '<c-w>5<')
 vim.keymap.set('n', '<M-.>', '<c-w>5>')
-vim.keymap.set('n', '<M-t>', '<C-W>+')
-vim.keymap.set('n', '<M-s>', '<C-W>-')
+-- vim.keymap.set('n', '<M-t>', '<C-W>+')
+-- vim.keymap.set('n', '<M-s>', '<C-W>-')
 
 -- Split window
 vim.keymap.set('n', '<M-x>', ':vsplit<CR>', { desc = 'Split Screen [V]ertically' })

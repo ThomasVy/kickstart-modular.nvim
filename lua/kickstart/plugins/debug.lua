@@ -63,6 +63,7 @@ return {
       -- online, please don't ask me how to install them :)
       ensure_installed = {
         -- Update this to ensure that you have the debuggers for the langs you want
+        'cppdbg',
         'delve',
       },
     }
@@ -92,7 +93,18 @@ return {
     dap.listeners.after.event_initialized['dapui_config'] = dapui.open
     dap.listeners.before.event_terminated['dapui_config'] = dapui.close
     dap.listeners.before.event_exited['dapui_config'] = dapui.close
-
+    dap.configurations.cpp = {
+      {
+        name = "Launch file",
+        type = "cppdbg",
+        request = "launch",
+        program = function()
+          return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/a.out", "file")
+        end,
+        cwd = '${workspaceFolder}',
+        stopOnEntry = true,
+      },
+    }
     -- Install golang specific config
     require('dap-go').setup {
       delve = {
