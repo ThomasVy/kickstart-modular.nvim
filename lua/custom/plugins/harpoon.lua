@@ -20,9 +20,6 @@ return {
         --     harpoon:list():next { ui_nav_wrap = true }
         -- end, { desc = 'Harpoon Next' })
 
-        vim.keymap.set('n', '<leader>a', function()
-            harpoon:list():add()
-        end, { desc = 'Harpoon Add' })
 
         -- select
         vim.keymap.set('n', '<M-a>', function()
@@ -43,8 +40,13 @@ return {
             local marks_length = harpoon:list():length()
             local current_file_path = vim.fn.fnamemodify(vim.fn.expand("%:p"), ":.")
             for index = 1, marks_length do
-                local harpoon_file_path = harpoon:list():get(index).value
-                local file_name = harpoon_file_path == "" and "(empty)" or vim.fn.fnamemodify(harpoon_file_path, ':t')
+                local file_metadata = harpoon:list():get(index)
+                if (file_metadata == nil or file_metadata == "") then
+                    break
+                end
+                local harpoon_file_path = file_metadata.value
+
+                local file_name = vim.fn.fnamemodify(harpoon_file_path, ':t')
 
                 if current_file_path == harpoon_file_path then
                     contents[index] = string.format("%%#HarpoonNumberActive# %s. %%#HarpoonActive#%s ", index, file_name)
@@ -63,6 +65,11 @@ return {
                 vim.o.tabline = Harpoon_files()
             end
         })
+
+        vim.keymap.set('n', '<leader>a', function()
+            harpoon:list():add()
+            vim.o.tabline = Harpoon_files()
+        end, { desc = 'Harpoon Add' })
         --
         -- --replace
         -- vim.keymap.set('n', '<leader>nra', function()
