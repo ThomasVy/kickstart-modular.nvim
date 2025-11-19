@@ -49,6 +49,8 @@ return {
               ['<C-x>'] = actions.select_vertical,
               ['<esc>'] = actions.close,
               ['<C-y>'] = actions.select_default,
+              ['<C-u>'] = false,
+              ['<C-d>'] = false,
             },
           },
         },

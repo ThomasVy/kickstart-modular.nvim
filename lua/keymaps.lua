@@ -6,18 +6,18 @@
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 
-function ReloadConfig()
-    for name, _ in pairs(package.loaded) do
-        if name:match '^user' or name:match '^plugins' then
-            package.loaded[name] = nil
-        end
-    end
-    vim.cmd 'source $MYVIMRC'
-    vim.notify('Neovim configuration reloaded!', vim.log.levels.INFO)
-end
-
-vim.keymap.set('n', '<leader>z', ReloadConfig, { desc = 'Reload Neovim config' })
-vim.keymap.set('n', '<leader>x', '<cmd>source %<CR>', { desc = 'Execute the current file' })
+-- function ReloadConfig()
+--     for name, _ in pairs(package.loaded) do
+--         if name:match '^user' or name:match '^plugins' then
+--             package.loaded[name] = nil
+--         end
+--     end
+--     vim.cmd 'source $MYVIMRC'
+--     vim.notify('Neovim configuration reloaded!', vim.log.levels.INFO)
+-- end
+--
+-- vim.keymap.set('n', '<leader>z', ReloadConfig, { desc = 'Reload Neovim config' })
+-- vim.keymap.set('n', '<leader>x', '<cmd>source %<CR>', { desc = 'Execute the current file' })
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
@@ -63,6 +63,7 @@ vim.keymap.set({ 'n', 'v' }, '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the 
 vim.keymap.set({ 'n', 'v' }, '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set({ 'n', 'v' }, '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
+vim.keymap.set("i", "<C-l>", "<Nop>", { noremap = true, silent = true })
 -- Quickfix list
 vim.keymap.set('n', '<M-i>', '<CMD>cnext<CR>', { desc = 'Go to the next item in the quickfix list' })
 vim.keymap.set('n', '<M-u>', '<CMD>cprev<CR>', { desc = 'Go to the previous item in the quickfix list' })
