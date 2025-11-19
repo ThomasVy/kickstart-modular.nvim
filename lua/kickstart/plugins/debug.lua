@@ -29,7 +29,7 @@ return {
     local dapui = require 'dapui'
     return {
       -- Basic debugging keymaps, feel free to change to your liking!
-      { '<F5>',      dap.continue,          desc = 'Debug: Start/Continue' },
+      { '<leader>d', dap.continue,          desc = 'Debug: Start/Continue' },
       { '<F11>',     dap.step_into,         desc = 'Debug: Step Into' },
       { '<F10>',     dap.step_over,         desc = 'Debug: Step Over' },
       { '<S-F11>',   dap.step_out,          desc = 'Debug: Step Out' },
@@ -63,7 +63,7 @@ return {
       -- online, please don't ask me how to install them :)
       ensure_installed = {
         -- Update this to ensure that you have the debuggers for the langs you want
-        'cppdbg',
+        'cppdbg', -- Only works for linux and macOS
         'delve',
       },
     }
@@ -96,10 +96,10 @@ return {
     dap.configurations.cpp = {
       {
         name = "Launch file",
-        type = "cppdbg",
+        type = "cppvsdbg",
         request = "launch",
         program = function()
-          return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/a.out", "file")
+          return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "\\build\\debug\\tests\\", "file")
         end,
         cwd = '${workspaceFolder}',
         stopOnEntry = true,

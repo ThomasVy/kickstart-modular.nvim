@@ -21,8 +21,8 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
-vim.keymap.set('n', '<leader>p', '<cmd>NoiceDismiss<CR>', { desc = 'Dismiss noice' })
-vim.keymap.set('n', '<leader>P', '<cmd>Telescope noice<CR>', { desc = 'Open noice message' })
+-- vim.keymap.set('n', '<leader>p', '<cmd>NoiceDismiss<CR>', { desc = 'Dismiss noice' })
+-- vim.keymap.set('n', '<leader>P', '<cmd>Telescope noice<CR>', { desc = 'Open noice message' })
 vim.keymap.set('x', 'p', [["_dP]])
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
@@ -75,6 +75,10 @@ vim.keymap.set('n', '<M-,>', '<c-w>5<')
 vim.keymap.set('n', '<M-.>', '<c-w>5>')
 -- vim.keymap.set('n', '<M-t>', '<C-W>+')
 -- vim.keymap.set('n', '<M-s>', '<C-W>-')
+
+vim.keymap.set('n', '<leader>p', function()
+    vim.cmd('e ' .. vim.fn.stdpath('log'))
+end, { desc = "Open Logs" })
 
 -- Split window
 vim.keymap.set('n', '<M-x>', ':vsplit<CR>', { desc = 'Split Screen [V]ertically' })
