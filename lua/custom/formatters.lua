@@ -5,7 +5,8 @@ local setup = function(ensured_installed)
         'tailwindcss-language-server',
         'prettier',
         'fixjson',
-        'hadolint'
+        'hadolint',
+        "clang_format"
         -- 'clangd',
         -- 'isort',
         -- 'black',

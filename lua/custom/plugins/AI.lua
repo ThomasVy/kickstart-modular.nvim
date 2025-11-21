@@ -10,7 +10,9 @@ return {
         auto_trigger = true,
         hide_during_completion = false,
         keymap = {
-          accept = "<C-l>",
+          accept = "<M-l>",
+          next = "<M-]>",
+          prev = "<M-[>",
         },
       },
     },

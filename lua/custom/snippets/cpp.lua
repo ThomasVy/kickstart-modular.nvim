@@ -39,8 +39,8 @@ ls.add_snippets("cpp", {
     s("test", fmt(
         [[
     #include <gtest/gtest.h>
-    #include "{}"
-    class {}Test : public ::testing::Test {{
+    using namespace ::testing;
+    class {}Test : public Test {{
     public:
         {}Test() {{}}
 
@@ -50,6 +50,15 @@ ls.add_snippets("cpp", {
     TEST_F({}Test, {}) {{
         {}
     }}
-    ]], { i(1), i(2), rep(2), rep(2), rep(2), i(3, "TestCase1"), i(4, "ASSERT_TRUE(false);") })),
+    ]], { i(1), rep(1), rep(1), rep(1), i(2, "TestName"), i(3) })),
+    s("mock", fmt(
+        [[
+    #include <gmock/gmock.h>
+    class Mock{} : public I{} {{
+    public:
+        MOCK_METHOD({}, {}, (), (override));
+    }};
+    ]], { i(1), rep(1), i(2, "MethodName"), i(3, "ReturnType") })),
+
 
 })

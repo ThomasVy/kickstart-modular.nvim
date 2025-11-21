@@ -12,7 +12,7 @@ return {
             harpoon.ui:toggle_quick_menu(harpoon:list())
         end, { desc = 'Harpoo[N] [L]ist' })
 
-        vim.keymap.set('n', '<M-z>', function()
+        vim.keymap.set('n', '<leader>a', function()
             harpoon:list():add()
             vim.o.tabline = Harpoon_files()
         end, { desc = 'Harpoon Add' })
