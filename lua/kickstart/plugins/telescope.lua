@@ -80,7 +80,7 @@ return {
       -- Enable Telescope extensions if they are installed
       require('telescope').load_extension('fzf')
       require('telescope').load_extension('ui-select')
-      require('telescope').load_extension('noice')
+      -- require('telescope').load_extension('noice')
 
       -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'
