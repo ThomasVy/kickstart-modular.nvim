@@ -109,6 +109,10 @@ end, {
     'place "previous context" mark before moving more than one line down using `j`, so it is added to the jumplist and Ctrl-o will go back to this spot',
 })
 
+
+vim.keymap.set('v', '<leader>sl', ':s/\\V', { desc = '[S]earch and replace [L]ocally' })
+vim.keymap.set('n', '<leader>sl', [[:%s/\V<C-r><C-w>]], { desc = '[S]earch and replace [L]ocally' })
+
 vim.keymap.set('n', 'k', function()
     if vim.v.count1 > 1 then
         return ('m`%sk'):format(vim.v.count1)
