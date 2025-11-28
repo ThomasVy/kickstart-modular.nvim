@@ -1,7 +1,8 @@
 return {
   {
     'mrcjkb/rustaceanvim',
-    version = '^5', -- Recommended
+    version = '^6', -- Recommended
+    lazy = false,
     ft = { 'rust' },
     opts = {
       server = {
@@ -67,11 +68,10 @@ return {
     },
 
     config = function(_, opts)
-      local mason_registry = require('mason-registry')
-      local codelldb = mason_registry.get_package("codelldb")
-      local extension_path = codelldb:get_install_path() .. "/extension/"
-      local codelldb_path = extension_path .. "adapter/codelldb"
-
+      -- Update this path
+      -- Install VSCode CodeLLDB extension if you haven't already
+      local extension_path = vim.env.HOME .. '/.vscode/extensions/vadimcn.vscode-lldb-1.11.8'
+      local codelldb_path = extension_path .. 'adapter/codelldb'
       local liblldb_path = extension_path .. 'lldb/lib/liblldb'
       local this_os = vim.uv.os_uname().sysname;
 
@@ -85,8 +85,10 @@ return {
       end
 
       local cfg = require('rustaceanvim.config')
-      opts.dap = {
-        adapter = cfg.get_codelldb_adapter(codelldb_path, liblldb_path),
+      return {
+        dap = {
+          adapter = cfg.get_codelldb_adapter(codelldb_path, liblldb_path),
+        },
       }
     end
   },
