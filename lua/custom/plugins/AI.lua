@@ -15,6 +15,9 @@ return {
           prev = "<M-[>",
         },
       },
+      config = function(opt)
+        require('copilot').setup(opt)
+      end,
     },
   }, -- for providers='copilot'
   {
@@ -34,7 +37,7 @@ return {
       instructions_file = "avante.md",
       -- for example
       provider = "copilot",
-      mode = "legacy",            -- "legacy" | "agentic"
+      mode = "agentic",           -- "legacy" | "agentic"
       behaviour = {
         auto_suggestions = false, -- Experimental stage
         auto_set_highlight_group = true,
