@@ -5,23 +5,9 @@ return {
   -- },
   {
     'zbirenbaum/copilot.lua',
-    -- requires = {
-    --   "copilotlsp-nvim/copilot-lsp",
-    --   init = function()
-    --     vim.g.copilot_nes_debounce = 500
-    --   end,
-    -- },
     cmd = "Copilot",
     event = 'InsertEnter',
     opts = {
-      -- nes = {
-      --   enabled = true,
-      --   keymap = {
-      --     accept_and_goto = "<M-p>",
-      --     accept = false,
-      --     dismiss = "<Esc>",
-      --   },
-      -- },
       panel = {
         enabled = false,
       },
