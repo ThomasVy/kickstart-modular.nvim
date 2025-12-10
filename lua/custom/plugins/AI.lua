@@ -15,9 +15,6 @@ return {
           prev = "<M-[>",
         },
       },
-      config = function(opt)
-        require('copilot').setup(opt)
-      end,
     },
   }, -- for providers='copilot'
   {
