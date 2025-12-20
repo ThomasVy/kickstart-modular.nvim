@@ -17,9 +17,9 @@ return {
       incremental_selection = {
         enable = true,
         keymaps = {
-          init_selection = '<M-i>', -- set to `false` to disable one of the mappings
-          node_incremental = '<M-k>',
-          node_decremental = '<M-j>',
+          init_selection = '<C-i>', -- set to `false` to disable one of the mappings
+          node_incremental = '<C-i>',
+          node_decremental = '<C-I>',
         },
       },
       textobjects = {
