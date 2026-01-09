@@ -24,7 +24,7 @@ local servers = {
             },
             clangd = {
                 fallbackFlags = {
-                    '-std=c++20'
+                    '-std=c++23'
                 }
             }
         },
