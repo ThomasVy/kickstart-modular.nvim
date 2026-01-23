@@ -1,9 +1,37 @@
 return {
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
+    branch = "master",
     build = ':TSUpdate',
     opts = {
-      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' },
+      ensure_installed = {
+        "bash",
+        "c",
+        "cmake",
+        "cpp",
+        "diff",
+        "dockerfile",
+        "git_config",
+        "gitignore",
+        "html",
+        "ini",
+        "javascript",
+        "json",
+        "jsonc",
+        "lua",
+        "luadoc",
+        "markdown",
+        "markdown_inline",
+        "python",
+        "query",
+        "rust",
+        "toml",
+        "tsx",
+        "typescript",
+        "vim",
+        "vimdoc",
+        "yaml",
+      },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
@@ -82,6 +110,7 @@ return {
   },
   {
     'nvim-treesitter/nvim-treesitter-textobjects',
+    branch = "master",
   },
 }
 -- vim: ts=2 sts=2 sw=2 et
