@@ -31,6 +31,7 @@ return {
         "vim",
         "vimdoc",
         "yaml",
+        "powershell"
       },
       -- Autoinstall languages that are not installed
       auto_install = true,
