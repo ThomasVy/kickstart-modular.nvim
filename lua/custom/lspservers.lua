@@ -49,6 +49,22 @@ local servers = {
     --    https://github.com/pmizio/typescript-tools.nvim
     --
     -- But for many setups, the LSP (`tsserver`) will work just fine
+    powershell_es = {
+        filetypes = { 'ps1' },
+        settings = {
+            on_attach = function(client, bufnr)
+                -- Enable capabilities like completion, hover, etc.
+                -- You may have additional keymaps defined in your general on_attach function
+                vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+                -- other on_attach functions here (e.g., keymaps)
+            end
+
+
+        }
+
+
+    },
+
     ts_ls = {
         init_options = {
             preferences = {
