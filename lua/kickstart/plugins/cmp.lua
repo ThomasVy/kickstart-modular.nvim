@@ -3,7 +3,7 @@ return {
         'saghen/blink.cmp',
         version = '1.*',
         dependencies = {
-            "giuxtaposition/blink-cmp-copilot",
+            -- "giuxtaposition/blink-cmp-copilot",
             {
                 'L3MON4D3/LuaSnip',
                 version = 'v2.*',
