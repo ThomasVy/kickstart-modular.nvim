@@ -74,6 +74,8 @@ vim.opt.termguicolors = true
 -- when indenting with '>', use 4 spaces width
 vim.opt.shiftwidth = 4
 
+vim.o.isfname = table.concat({ vim.o.isfname, "(", ")" }, ",")
+
 -- vim.opt.colorcolumn = '80'
 vim.opt.wrap = false
 -- on pressing tab, insert 4 spaces
