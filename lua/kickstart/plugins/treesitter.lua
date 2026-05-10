@@ -99,7 +99,7 @@ return {
       -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
 
       ---@diagnostic disable-next-line: missing-fields
-      require('nvim-treesitter.configs').setup(opts)
+      require('nvim-treesitter.config').setup(opts)
       -- require('nvim-treesitter.install').compilers = { 'clang' }
       require('nvim-treesitter.install').prefer_git = false
       -- There are additional nvim-treesitter modules that you can use to interact
